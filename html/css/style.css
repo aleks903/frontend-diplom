@@ -124,12 +124,12 @@
   background: #3e3c41;
 }
 
-.filters h2 {
+.filters p {
   display: flex;
   align-items: center;
   font-size: 30px;
   color: #ffffff;
-  padding-left: 24px;
+  /* padding-left: 24px; */
 }
 
 /* date-filter */
@@ -285,21 +285,21 @@ input:checked + .slider:before {
 }
 
 /* price-filter */
-.price-filter {
-  padding-bottom: 24px;
+.price-filter, .departure_time-filters_container, .departure-back_time-filters_container {
   border-bottom: 1px solid #ffffff;
+  padding: 30px 35px 35px 25px;
 }
 
 .price-filter-title,
 .time-filter-main_title {
   /* width: 160px; */
-  padding: 30px 0 10px 30px;
+  /* padding: 30px 0 10px 30px; */
 }
 
 .start-cost-title {
   font-size: 18px;
   color: #ffffff;
-  padding-left: 30px;
+  /* padding-left: 30px; */
 }
 
 .max-cost-title {
@@ -312,7 +312,7 @@ input:checked + .slider:before {
   position: relative;
   width: 294px;
   padding: 10px 0 10px 0;
-  margin-left: 30px;
+  /* margin-left: 30px; */
 }
 
 .circle-1,
@@ -362,7 +362,7 @@ input:checked + .slider:before {
   display: flex;
   flex-direction: row;
   width: 294px;
-  margin-left: 30px;
+  /* margin-left: 30px; */
 }
 
 .start-cost,
@@ -379,25 +379,27 @@ input:checked + .slider:before {
   left: 171px;
 }
 
-.departure_time-filters_container,
+/* .departure_time-filters_container,
 .departure-back_time-filters_container {
   border-bottom: 1px solid #ffffff;
-  padding-bottom: 30px;
-}
+  padding: 30px 35px 35px 25px;
+} */
 
 .time-filter_title-container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
 }
 
 .time-filter-title {
   font-size: 24px;
   color: #ffffff;
-  padding: 10px 0 10px 30px;
+  padding: 10px 0 10px 5px;
 }
 
 .arrival-title {
-  padding-left: 135px;
+  /* padding-left: 135px; */
+  justify-content: flex-end;
 }
 
 .time-container {
@@ -458,11 +460,14 @@ input:checked + .slider:before {
   width: 20px;
   height: 20px;
   background: url(../img/icons/icon_minus.png);
-  margin: 38px 18px 0 0px;
 }
 
 /* overlooked-tickets */
-.overlooked-tickets h2 {
+.overlooked-tickets{
+  margin-top: 100px;
+}
+
+.overlooked-tickets p {
   font-weight: 500;
   font-size: 30px;
   text-transform: uppercase;
@@ -470,52 +475,52 @@ input:checked + .slider:before {
 }
 
 .overlooked-tickets ul {
-  /* padding: 0;
-  margin: 0; */
+  margin-top: 30px;
 }
 
 .overlooked-ticket {
   display: flex;
-  width: 360px;
-  height: 161px;
+  flex-direction: column;
   background: #ffffff;
   border: 1px solid #c4c4c4;
-  box-sizing: border-box;
   box-shadow: 0px 2px 2px rgba(62, 60, 65, 0.25);
-  flex-wrap: wrap;
-  justify-content: space-between;
-  margin-top: 15px;
+  margin-bottom: 15px;
+  padding: 20px;
 }
 
-.point-name,
-.point-station {
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  line-height: normal;
+.overlooked-ticket:last-child {
+  margin-bottom: 0;
+}
+
+.points {
+  display: flex;
+  justify-content: space-between;
+}
+
+.point-name {
   font-size: 20px;
   color: #292929;
 }
 
 .point-station {
   font-size: 16px;
+  color: #928F94;
   width: 115px;
 }
 
 .departure-point,
 .arrival-point {
-  height: 100px;
   display: flex;
   flex-direction: column;
 }
 
 .departure-point {
-  padding: 15px 0 0 15px;
+  /* padding: 15px 0 0 15px; */
   align-items: flex-start;
 }
 
 .arrival-point {
-  padding: 15px 15px 0 0;
+  /* padding: 15px 15px 0 0; */
   align-items: flex-end;
 }
 
@@ -523,24 +528,26 @@ input:checked + .slider:before {
   text-align: end;
 }
 
+.comfort-price {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 40px;
+}
+
 .train-comfort-props {
-  padding-left: 15px;
+  /* padding-left: 15px; */
 }
 
 .comfort-props_vector {
   display: flex;
   width: 92px;
   height: 20px;
-  background: url(../Pictures/icons/css_sprites.png) -20px -550px;
+  background-image: url(../img/icons/icons_comfort.png);
 }
 
 .overlooked-ticket-price {
   display: flex;
-  padding-right: 15px;
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  line-height: normal;
   font-size: 16px;
   text-align: right;
   color: #928f94;
@@ -548,14 +555,13 @@ input:checked + .slider:before {
 }
 
 .ticket-price {
-  font-weight: bold;
-  line-height: normal;
+  font-weight: 700;
   font-size: 36px;
   color: #ffa800;
   padding: 0 5px 0 5px;
 }
 
-.total-price {
+/* .total-price {
   display: flex;
   align-items: center;
   font-family: "Roboto", sans-serif;
@@ -564,42 +570,38 @@ input:checked + .slider:before {
   font-weight: bold;
   font-size: 48px;
   color: #ffa800;
-}
+} */
 
 .rub-vector {
   display: flex;
   width: 20px;
   height: 25px;
   margin-left: 5px;
-  background: url(../Pictures/icons/big-rub-vector.png);
+  background: url(../img/icons/big-rub-vector.png);
 }
 
-.trains {
+/* trains */
+.main-block {
   width: 960px;
-  /* padding: 100px 0 0 85px; */
 }
+
+/* .trains {
+  width: 960px;
+  padding: 100px 0 0 85px;
+} */
 
 .trains_head {
   display: flex;
   justify-content: space-between;
-}
-
-.trains_head p {
-  margin: 0;
+  margin-bottom: 45px;
 }
 
 .trains-list_section-title,
 .trains-list_sort-by,
 .trains-list_show-by {
   display: flex;
-  align-items: baseline;
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  line-height: normal;
   font-size: 18px;
   color: #928f94;
-  margin: 0;
 }
 
 .trains-amount {
@@ -610,6 +612,29 @@ input:checked + .slider:before {
   padding-right: 345px;
 }
 
+.sorting {
+  color: #292929;
+  position: relative;
+  width: 140px;
+  margin-left: 15px;
+}
+
+.sorting-list {
+  position: absolute;
+  top: -15px;
+  left: 0;
+  width: 140px;
+  background-color: #f7f5f9;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.sorting-list-item {
+  border-bottom: 1px solid #e5e5e5;
+  padding: 15px 0 15px 15px;
+}
+
 .show-by-list {
   display: flex;
   /* padding: 0;
@@ -618,6 +643,7 @@ input:checked + .slider:before {
 
 .show-by-list li {
   padding-left: 10px;
+  cursor: pointer;
 }
 
 .show-by-list li:hover {
@@ -628,9 +654,6 @@ input:checked + .slider:before {
   color: #ffa800;
 }
 
-.sorting {
-  background-color: transparent;
-}
 
 .trains-list {
   /* list-style: none;
@@ -647,6 +670,10 @@ input:checked + .slider:before {
   margin-bottom: 50px;
 }
 
+.train:last-child {
+  margin-bottom: 140px;
+}
+
 .train:hover {
   border: 1px solid #ffa800;
 }
@@ -654,19 +681,25 @@ input:checked + .slider:before {
 .train-description-wrap {
   width: 197px;
   background-color: #e4e0e9;
+  display: flex;
+  /* justify-content: center; */
+  align-items: center;
 }
 
 .train-description {
-  position: relative;
-  top: 15%;
+  width: 100%;
 }
 
 .train-vector {
   display: flex;
   width: 86px;
   height: 86px;
-  background: url(../Pictures/icons/css_sprites.png) -20px -424px;
+  background-image: url(../Pictures/icons/icon_ticket_train.png);
   margin: auto;
+}
+
+.train-number {
+  padding: 20px 0;
 }
 
 .train-number,
@@ -674,26 +707,16 @@ input:checked + .slider:before {
 .train-departure-point,
 .train-departure-station,
 .travel-time {
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  font-weight: bold;
-  line-height: normal;
+  font-weight: 700;
   font-size: 24px;
   text-align: center;
   color: #3e3c41;
-  margin: 0;
 }
 
 .train-route {
-  align-items: baseline;
-  margin: 0;
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  line-height: normal;
   font-size: 16px;
   color: #292929;
-  padding: 0 0 0 30px;
+  padding-left: 25px;
 }
 
 .train-route li {
@@ -715,12 +738,13 @@ input:checked + .slider:before {
 
 .train-travel_time-scheme-wrap {
   width: 479px;
+  padding: 50px 0 0 40px;
 }
 
 .train-shipment-scheme,
 .train-shipment-reverse-scheme {
   display: flex;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .train-departure-time-wrap,
@@ -728,6 +752,7 @@ input:checked + .slider:before {
 .train-arrival-time {
   display: flex;
   flex-direction: column;
+  width: 150px;
 }
 
 .train-departure-time {
@@ -747,11 +772,13 @@ input:checked + .slider:before {
   font-weight: normal;
   font-size: 16px;
   color: #c4c4c4;
-  width: 152px;
+  /* width: 152px; */
 }
 
 .travel-time-wrap {
-  padding-right: 20px;
+  margin-right: 86px;
+  align-items: center;
+  width: inherit;
 }
 
 .travel-time {
@@ -761,11 +788,12 @@ input:checked + .slider:before {
 }
 
 .train-shipment-scheme {
-  padding: 50px 50px 25px 40px;
+  margin-bottom: 70px;
+  /* padding: 50px 50px 25px 40px; */
 }
 
 .train-shipment-reverse-scheme {
-  padding: 25px 50px 50px 40px;
+  /* padding: 25px 50px 50px 40px; */
 }
 
 .travel-time-vector {
@@ -784,45 +812,40 @@ input:checked + .slider:before {
   margin-top: 5px;
 }
 
-.train-place-prices ul {
-  /* padding: 0; */
-
+.train-place-prices {
+  padding: 40px 0 20px 0;
+  border-left: 1px dashed #e5e5e5;
 }
 
 .train-place-prices li {
   display: flex;
   align-items: baseline;
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
-  font-weight: normal;
-  line-height: normal;
-  font-size: 16px;
-  color: #3e3c41;
-  justify-content: space-between;
-  margin-top: 20px;
+  margin-bottom: 30px;
+  position: relative;
+  padding: 0 20px 0 25px;
 }
 
-.type {
+.type, .name-place {
   width: 80px;
 }
 
-.seats {
-  font-family: "Roboto", sans-serif;
-  font-style: normal;
+.seats, .amount-place {
+  /* font-family: "Roboto", sans-serif; */
+  /* font-style: normal; */
   font-weight: 500;
-  line-height: normal;
-  font-size: 16px;
+  /* line-height: normal; */
+  /* font-size: 16px; */
   color: #ffa800;
   width: 30px;
   margin: 0 15px 0 30px;
 }
 
-.place-ticket-price {
+.place-ticket-price, .price-place {
   display: flex;
-  text-align: start;
-  font-style: normal;
+  /* text-align: start; */
+  /* font-style: normal; */
   font-weight: bold;
-  line-height: normal;
+  /* line-height: normal; */
   font-size: 24px;
   color: #2d2b2f;
   width: 90px;
@@ -834,8 +857,36 @@ input:checked + .slider:before {
   display: flex;
   width: 16px;
   height: 19px;
-  background: url(../Pictures/icons/css_sprites.png) -839px -77px;
+  background-size: cover;
+  background-image: url(../img/icons/icon_ruble_small.png);
   margin-left: 5px;
+}
+
+.places-up-down {
+  /* width: 100%;  */
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 40px;
+  background-color: #f5f4f6;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 0 5px 0 5px;
+  padding-top: 15px;
+  z-index: 1;
+}
+
+.places-up-down::after {
+  content: '';
+  position: absolute;
+  border: 20px solid transparent;
+  border-bottom: 20px solid #f5f4f6;
+  top: -30px;
+  left: calc(50% - 20px);
+}
+
+.places-up-down li {
+  margin-bottom: 15px;
 }
 
 .train-comfort-available-props {
