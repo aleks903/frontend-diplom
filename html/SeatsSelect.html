@@ -415,8 +415,8 @@
                 <li class="available-place">31</li>
               </ul>
             </div>
+            <div class="total-price">8080<span class="rub-vector-small"></span></div>
             
-            <!--
 Схема плацкартного вагона
 
   <div class="seats-scheme standart platzKarte-wagon">
@@ -477,8 +477,8 @@
       <li class="place_is_taken">48</li>
     </ul>
   </div>
--->
-            <!--
+
+            
 Люкс-вагон
 
   <div class="seats-scheme standart luxury-wagon">
@@ -502,8 +502,8 @@
       <li class="available-place">16</li>
     </ul>
   </div>
--->
-            <!--
+
+            
 Сидячие места
 
   <div class="seats-scheme seat-type">
@@ -581,7 +581,7 @@
       <li class="available-place">62</li>
     </ul>
   </div>
--->
+
 </div>
         </div>
         <div class="seats-select_departure-back">
@@ -602,7 +602,7 @@
                 </ul>
               </div>
             </div>
-            <div class="train-travel_time-scheme-wrap">
+            <!-- <div class="train-travel_time-scheme-wrap"> -->
               <div class="seats_train-shipment-scheme">
                 <div class="train-departure-time-wrap">
                   <span class="train-departure-time">0:10</span>
@@ -616,7 +616,7 @@
                   <span class="train-departure-station">Ладожский вокзал</span>
                 </div>
               </div>
-            </div>
+            <!-- </div> -->
             <div class='seats_travel-time'>
               <span class="clockworkOrange-vector"></span>
               <div class='travel-time_wrap'>
@@ -625,47 +625,44 @@
               </div>
             </div>
           </div>
-          <section>
-            <h2 class="ticket-count-title">Количество билетов</h2>
-            <div class="ticket-count-container">
-              <div class="ticket-count active-count adult">
-                <div class="count-screen">
-                  <!-- тут разместить шаблон {`Взрослых-${props.name.num}`}-->
-                  <p>Взрослых - 2</p>
-                </div>
-                <p class="seat-description">Можно добавить еще 3 пассажиров</p>
-              </div>
 
-              <div class="ticket-count kids">
-                <div class="count-screen">
-                  <p>Детских - 1</p>
-                </div>
-                <p class="seat-description">Можно добавить еще 3 детей до 10 лет.Свое место в вагоне, как у взрослых,
-                  но дешевле в среднем на 50-65%</p>
-              </div>
 
-              <div class="ticket-count kidsWithoutSeats">
-                <div class="count-screen">
-                  <p>Детских «без места» — 0</p>
+            <div class="amount-tickets">
+              <h2 class="ticket-count-title">Количество билетов</h2>
+              <div class="ticket-count-container">
+                <div class="ticket-count active-count adult">
+                  <div class="count-screen">
+                    <!-- тут разместить шаблон {`Взрослых-${props.name.num}`}-->
+                    <p>Взрослых - 2</p>
+                  </div>
+                  <p class="seat-description">Можно добавить еще 3 пассажиров</p>
                 </div>
-                <p class="seat-description"></p>
+  
+                <div class="ticket-count kids">
+                  <div class="count-screen">
+                    <p>Детских - 1</p>
+                  </div>
+                  <p class="seat-description">Можно добавить еще 3 детей до 10 лет.Свое место в вагоне, как у взрослых,
+                    но дешевле в среднем на 50-65%</p>
+                </div>
+  
+                <div class="ticket-count kidsWithoutSeats">
+                  <div class="count-screen">
+                    <p>Детских «без места» — 0</p>
+                  </div>
+                  <p class="seat-description"></p>
+                </div>
+  
               </div>
-
             </div>
-          </section>
-          <section>
-            <h2 class="wagon-type-title">Тип вагона</h2>
-            <ul class="wagon-types-list">
-              <li class="wagon-type seat"><span class="wagon-type_vector"></span>Сидячий</li>
-              <li class="wagon-type platzKarte"><span class="wagon-type_vector"></span>Плацкарт</li>
-              <li class="wagon-type coupe"><span class="wagon-type_vector"></span>Купе</li>
-              <li class="wagon-type luxury"><span class="wagon-type_vector"></span>Люкс</li>
-            </ul>
-
-            <!--
-
-Схема выбора мест обратного направления. Пока не выбран тип вагона эти блоки будут скрыты.
-
+            <div class="wagon">
+              <p class="wagon-type-title">Тип вагона</p>
+              <ul class="wagon-types-list">
+                <li class="wagon-type seat"><span class="wagon-type_vector"></span>Сидячий</li>
+                <li class="wagon-type platzKarte"><span class="wagon-type_vector"></span>Плацкарт</li>
+                <li class="wagon-type coupe-active"><span class="wagon-type_vector-active"></span>Купе</li>
+                <li class="wagon-type luxury"><span class="wagon-type_vector"></span>Люкс</li>
+              </ul>
               <div class="wagon-numbers">
                 <p class="numbers-title">Вагоны</p>
                 <ul class="wagon-numbers-list">
@@ -675,24 +672,27 @@
                 <p class="number-disclamer">Нумерация вагонов начинается с головы поезда</p>
               </div>
               <div class="seat-select-form">
-              
+  
                 <div class="big-wagon-num">
                   <p class="big-num">07</p>
                   <p>вагон</p>
                 </div>
+  
                 <div class="wagon-description">
                   <div class="seats-positions">
-                    <h3>Места <span class="available-seats">11</span></h3>
+                    <p>Места <span class="available-seats">11</span></p>
                     <p class="seats-position">Верхние <span class="available-seats">3</p>
                     <p class="seats-position">Нижние <span class="available-seats">8</p>
                   </div>
+  
                   <div class="seats-prices">
-                    <h3>Стоимость</h3>
+                    <p>Стоимость</p>
                     <p class="seats-price">2920<span class="rub-vector-small"></span></p>
                     <p class="seats-price">3530<span class="rub-vector-small"></span></p>
                   </div>
+  
                   <div class="wagon-facilities">
-                    <h3>Обслуживание <span class="service-company-name">ФПК</span></h3>
+                    <p>Обслуживание <span class="service-company-name">ФПК</span></p>
                     <ul class="facilities-list">
                       <li data-title="Кондиционер" class="facilities-vector conditioner"></li>
                       <li data-title="Wi-Fi" class="facilities-vector wifi active wifi-active"></li>
@@ -702,10 +702,12 @@
                   </div>
                 </div>
               </div>
+  
               <div class="seats-disclamer">
                 <p>11 человек выбирают места в этом поезде</p>
               </div>
-              <div class="seats-scheme">
+  
+              <div class="seats-scheme standart">
                 <span class="scheme_wagon-number">07</span>
                 <ul class="scheme_top-seats">
                   <li class="place_is_taken">2</li>
@@ -744,8 +746,174 @@
                   <li class="available-place">31</li>
                 </ul>
               </div>
-              -->
-          </section>
+              <div class="total-price">8080<span class="rub-vector-small"></span></div>
+              
+  Схема плацкартного вагона
+  
+    <div class="seats-scheme standart platzKarte-wagon">
+      <span class="scheme_wagon-number">07</span>
+      <ul class="scheme_top-seats">
+        <li class="place_is_taken">2</li>
+        <li class="place_is_taken">4</li>
+        <li class="place_is_taken">6</li>
+        <li class="place_is_taken">8</li>
+        <li class="place_is_taken">10</li>
+        <li class="place_is_taken">12</li>
+        <li class="place_is_taken">14</li>
+        <li class="place_is_taken">16</li>
+        <li class="available-place">18</li>
+        <li class="place_is_taken">20</li>
+        <li class="place_is_taken">22</li>
+        <li class="place_is_taken">24</li>
+        <li class="place_is_taken">26</li>
+        <li class="place_is_taken">28</li>
+        <li class="available-place">30</li>
+        <li class="available-place">32</li>
+      </ul>
+      <ul class="scheme_bottom-seats">
+        <li class="available-place">1</li>
+        <li class="available-place">3</li>
+        <li class="place_is_taken">5</li>
+        <li class="place_is_taken">7</li>
+        <li class="place_is_taken">9</li>
+        <li class="available-place">11</li>
+        <li class="available-place">13</li>
+        <li class="available-place">15</li>
+        <li class="place_is_taken">17</li>
+        <li class="available-place">19</li>
+        <li class="place_is_taken">21</li>
+        <li class="place_is_taken">23</li>
+        <li class="place_is_taken">25</li>
+        <li class="available-place">27</li>
+        <li class="place_is_taken">29</li>
+        <li class="available-place">31</li>
+      </ul>
+    
+      <ul class='scheme_side-seats'>
+        <li class="available-place">33</li>
+        <li class="place_is_taken">34</li>
+        <li class="place_is_taken">35</li>
+        <li class="place_is_taken">36</li>
+        <li class="available-place">37</li>
+        <li class="place_is_taken">38</li>
+        <li class="available-place">39</li>
+        <li class="place_is_taken">40</li>
+        <li class="available-place">41</li>
+        <li class="place_is_taken">42</li>
+        <li class="place_is_taken">43</li>
+        <li class="place_is_taken">44</li>
+        <li class="available-place">45</li>
+        <li class="available-place">46</li>
+        <li class="available-place">47</li>
+        <li class="place_is_taken">48</li>
+      </ul>
+    </div>
+  
+              
+  Люкс-вагон
+  
+    <div class="seats-scheme standart luxury-wagon">
+      <span class="scheme_wagon-number">07</span>
+      <ul class="scheme_bottom-seats">
+        <li class="available-place">1</li>
+        <li class="available-place">2</li>
+        <li class="place_is_taken">3</li>
+        <li class="place_is_taken">4</li>
+        <li class="place_is_taken">5</li>
+        <li class="available-place">6</li>
+        <li class="available-place">7</li>
+        <li class="available-place">8</li>
+        <li class="available-place">9</li>
+        <li class="available-place">10</li>
+        <li class="place_is_taken">11</li>
+        <li class="place_is_taken">12</li>
+        <li class="place_is_taken">13</li>
+        <li class="available-place">14</li>
+        <li class="available-place">15</li>
+        <li class="available-place">16</li>
+      </ul>
+    </div>
+  
+              
+  Сидячие места
+  
+    <div class="seats-scheme seat-type">
+      <span class="scheme_wagon-number">07</span>
+      <ul class="scheme_first_lane-seats">
+        <li class="available-place">2</li>
+        <li class="available-place">4</li>
+        <li class="place_is_taken">6</li>
+        <li class="place_is_taken">8</li>
+        <li class="place_is_taken">10</li>
+        <li class="available-place">12</li>
+        <li class="available-place">14</li>
+        <li class="available-place">16</li>
+        <li class="available-place">18</li>
+        <li class="available-place">20</li>
+        <li class="place_is_taken">22</li>
+        <li class="place_is_taken">24</li>
+        <li class="place_is_taken">26</li>
+        <li class="available-place">28</li>
+        <li class="available-place">30</li>
+        <li class="available-place">32</li>
+      </ul>
+      <ul class="scheme_second_lane-seats">
+        <li class="available-place">1</li>
+        <li class="available-place">3</li>
+        <li class="place_is_taken">5</li>
+        <li class="place_is_taken">7</li>
+        <li class="place_is_taken">9</li>
+        <li class="available-place">11</li>
+        <li class="available-place">13</li>
+        <li class="available-place">15</li>
+        <li class="available-place">17</li>
+        <li class="available-place">19</li>
+        <li class="place_is_taken">21</li>
+        <li class="place_is_taken">23</li>
+        <li class="place_is_taken">25</li>
+        <li class="available-place">27</li>
+        <li class="available-place">29</li>
+        <li class="available-place">31</li>
+      </ul>
+      <ul class="scheme_third_lane-seats">
+        <li></li>
+        <li class="available-place">34</li>
+        <li class="available-place">36</li>
+        <li class="place_is_taken">38</li>
+        <li class="place_is_taken">40</li>
+        <li class="place_is_taken">42</li>
+        <li class="available-place">44</li>
+        <li class="available-place">46</li>
+        <li class="available-place">48</li>
+        <li class="available-place">50</li>
+        <li class="available-place">52</li>
+        <li class="place_is_taken">54</li>
+        <li class="place_is_taken">56</li>
+        <li class="place_is_taken">58</li>
+        <li class="available-place">60</li>
+        <li></li>
+      </ul>
+      <ul class="scheme_fourth_lane-seats">
+        <li class="available-place">33</li>
+        <li class="available-place">35</li>
+        <li class="place_is_taken">37</li>
+        <li class="place_is_taken">39</li>
+        <li class="place_is_taken">41</li>
+        <li class="available-place">43</li>
+        <li class="available-place">45</li>
+        <li class="available-place">47</li>
+        <li class="available-place">49</li>
+        <li class="available-place">51</li>
+        <li class="place_is_taken">53</li>
+        <li class="place_is_taken">55</li>
+        <li class="place_is_taken">57</li>
+        <li class="available-place">59</li>
+        <li class="available-place">61</li>
+        <li class="available-place">62</li>
+      </ul>
+    </div>
+  
+  </div>
         </div>
         <button class="next-button">Далее</button>
       </section>
