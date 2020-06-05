@@ -287,7 +287,11 @@ display: flex;
 .wagon-numbers-list {
   display: flex;
   list-style: none;
-  padding: 0 0 0 5px;
+}
+
+.wagon-numbers-list li {
+  margin-left: 10px;
+  cursor: pointer;
 }
 
 .wagon-number, .active-wagon-number, .numbers-title {
@@ -315,6 +319,13 @@ display: flex;
 
 .seat-select-form {
   display: flex;
+  /* padding-top: 30px; */
+}
+
+.seat-select-form ~ .seat-select-form {
+  padding-top: 30px;
+  border-top: 1px dashed #c4c4c4;
+  margin-top: 30px;
 }
 
 .big-wagon-num {
