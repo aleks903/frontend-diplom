@@ -1,3 +1,20 @@
+.loading-conteyner {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: #3E3C41;
+  padding-top: 260px;
+  padding-bottom: 320px;
+}
+
+.loading-conteyner span {
+  text-transform: uppercase;
+  font-size: 24px;
+  color: #918F94;
+  margin-bottom: 110px;
+}
+
 /* breadcrumbs */
 .breadcrumbs {
   height: 98px;
@@ -22,6 +39,7 @@
   display: flex;
   height: 100%;
   align-items: center;
+  padding: 0;
 }
 
 .breadcrumbs-list::before {
@@ -163,7 +181,7 @@
 
 .filter_departure-date,
 .filter_departure-date-back {
-  background-image: url(../Pictures/icons/date-vector.png);
+  background-image: url(../img/icons/date-vector.png);
   background-repeat: no-repeat;
   background-position-x: 255px;
   background-position-y: center;
@@ -521,7 +539,7 @@ input:checked + .slider:before {
   width: 20px;
   height: 25px;
   margin-left: 5px;
-  background: url(../img/icons/big-rub-vector.png);
+  background-image: url(../img/icons/big-rub-vector.png);
 }
 
 /* trains */
@@ -574,6 +592,11 @@ input:checked + .slider:before {
   padding: 15px 0 15px 15px;
 }
 
+.sorting-list-item:hover {
+  background-color: #FFCA62;
+  color: #ffffff;
+}
+
 .show-by-list {
   display: flex;
 }
@@ -601,7 +624,7 @@ input:checked + .slider:before {
   margin-bottom: 50px;
 }
 
-.train:last-child {
+.trains-list-container {
   margin-bottom: 140px;
 }
 
@@ -676,6 +699,7 @@ input:checked + .slider:before {
 .train-shipment-scheme,
 .train-shipment-reverse-scheme {
   display: flex;
+  justify-content: space-between;
 }
 
 .train-departure-time-wrap,
@@ -706,7 +730,7 @@ input:checked + .slider:before {
 }
 
 .travel-time-wrap {
-  margin-right: 86px;
+  /* margin-right: 86px; */
   align-items: center;
   width: inherit;
 }
@@ -917,4 +941,37 @@ input:checked + .slider:before {
   margin-left: 35px;
   background-color: #ffa800;
   border-radius: 5px;
+}
+
+.next-button {
+  display: flex;
+  /* width: 222px; */
+  height: 60px;
+  background: #FFA800;
+  border-radius: 5px;
+  border: none;
+  font-weight: 700;
+  font-size: 24px;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-top: 100px;
+  margin-left: auto;
+  padding: 0 60px;
+  justify-content: center;
+  align-items: center;
+}
+
+.next-button:hover {
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.next-button:active {
+  background-color: inherit;
+  border: 1px solid #ffa800;
+  color: #ffa800;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+.next-button_lock {
+  background: #928F94;
 }

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Вся жизнь - путешествие!</title>
+  <link rel="stylesheet" href="./css/MainPage.css">
+  <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+  <header class="second_header">
+    <div class="logo container">
+      <a class="logo-text bold" href="#">Лого</a>
+    </div>
+    <div class="top-menu">
+      <div class="top-menu_wrapper container">
+        <ul class="top-menu_nav-items">
+          <li class="top-menu_nav-item">
+            <a href="#about-us">О нас</a>
+          </li>
+          <li class="top-menu_nav-item">
+            <a href="#how-its-work">Как это работает</a>
+          </li>
+          <li class="top-menu_nav-item">
+            <a href="#reviews">Отзывы</a>
+          </li>
+          <li class="top-menu_nav-item">
+            <a href="#contacts">Контакты</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="second-header-content container">
+      <form class="header-content_search-form">
+        <div class="block-input">
+          <div class="direction-form">
+            <p class="form_title">Направление</p>
+            <div class="element-inputs">
+              <input class="search-form_input from_search" placeholder="Откуда" />
+              <div class="reverse-points"></div>
+              <input class="search-form_input where_search" placeholder="Куда">
+            </div>
+          </div>
+          <div class="data-form">
+            <p class="form_title">Дата</p>
+            <div class="element-inputs">
+              <input type="date" class="search-form_input departure-date" placeholder="ДД/ММ/ГГ">
+              <input type="date" class="search-form_input departure-date-back" placeholder="ДД/ММ/ГГ">
+            </div>
+          </div>
+        </div>
+        <button class="find-tickets button-orange-black">Найти билеты</button>
+      </form>
+    </div>
+  </header>
+    
+  <div class="loading-conteyner">
+    <span>Идет поиск</span>
+    
+    <div class="loading-gif"><img src="./img/icons/loading.gif"/></div>
+  </div>
+
+  <footer class="footer" id="contacts">
+    <div class="footer-wrap">
+      <div class="container">
+        <div class="footer-wrap_contacts">
+          <p class="footer-wrap_contacts-title">Свяжитесь с нами</p>
+          <ul class="footer-wrap_contacts-list">
+            <li class="contacts-list-phone">
+              <div class="phone-vector contacts-list-vector"></div>8 (800) 000 00 00
+            </li>
+            <li class="contacts-list-mail">
+              <div class="mail-vector contacts-list-vector"></div>inbox@mail.ru
+            </li>
+            <li class="contacts-list-skype">
+              <div class="skype-vector contacts-list-vector"></div>tu.train.tickets
+            </li>
+            <li class="contacts-list-adress">
+              <div class="adress-vector contacts-list-vector"></div>г. Москва<br> ул. Московская 27-35 555 555
+            </li>
+          </ul>
+        </div>
+
+        <div class="footer-wrap_subscribe">
+          <p class="footer-wrap_subscribe-form-title">Подписка</p>
+          <form class="footer-wrap_subscribe-form">
+            <p class="footer-wrap_subscribe-form-label">Будьте в курсе событий</p>
+            <div class="subscribe-form-input-container">
+              <input class="subscribe_email" type="email" name="email" placeholder="e-mail" />
+              <input class="subscribe_submit" type="submit" value="ОТПРАВИТЬ" />
+            </div>
+          </form>
+          <div class="footer-wrap_subscribe-social">
+            <h3 class="footer-wrap_subscribe-social-title">Подписывайтесь на нас</h3>
+            <ul class="footer-wrap_subscribe-social-list">
+              <li>
+                <div class="youtube-vector social-list-vector"></div>
+              </li>
+              <li>
+                <div class="linkedIn-vector social-list-vector"></div>
+              </li>
+              <li>
+                <div class="google-vector social-list-vector"></div>
+              </li>
+              <li>
+                <div class="facebook-vector social-list-vector"></div>
+              </li>
+              <li>
+                <div class="twitter-vector social-list-vector"></div>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="footer-end">
+      <div class="container">
+        <a class="footer-end_logo" href="#">Лого</a>
+        <a class="footer-end_logo" href="#">
+          <div class="pageUp-vector"></div>
+        </a>
+        <p>2018WEB</p>
+      </div>
+    </div>
+  </footer>
+
+</body>
+
+</html>
