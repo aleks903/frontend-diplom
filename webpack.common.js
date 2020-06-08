@@ -2,6 +2,7 @@ const path = require('path'); // Node.js модуль для разрешени�
 const HtmlWebpackPlugin = require('html-webpack-plugin'); // устанавливается через npm
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const Dotenv = require('dotenv-webpack');
+const CopyWebpackPlugin = require('copy-webpack-plugin');
 
 module.exports = {
   entry: './src/index.js',
@@ -19,6 +20,10 @@ module.exports = {
       // favicon: './src/favicon.ico',
     }),
     new Dotenv(),
+    // new CopyWebpackPlugin([
+    //   { from: path.src + '/img', to: `img1` },
+    //   // { from: PATHS.src + '/static' },
+    // ]),
   ],
   module: {
     rules: [
@@ -65,7 +70,11 @@ module.exports = {
             loader: 'file-loader',
             options: {
               esModule: false,
-              name: 'img/[name].[ext]',
+              name: file => {
+                let dirNameInsideAssets = path.relative(path.join(__dirname, 'src'), path.dirname(file));
+                
+                return `${dirNameInsideAssets}/[name].[ext]`;
+              }
             },
           },
         ],

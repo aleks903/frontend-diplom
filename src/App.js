@@ -1,17 +1,20 @@
 import React from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-import Header from './components/Header';
-import Banner from './components/Banner';
-import Footer from './components/Footer';
-import PageHome from './components/PageHome';
-import PageCatalog from './components/PageCatalog';
-import PageAbout from './components/PageAbout';
-import PageContacts from './components/PageContacts';
-import Page404 from './components/Page404';
-import PageProduct from './components/PageProduct';
-import PageCart from './components/PageCart';
+// import Header from './components/Header';
+// import Banner from './components/Banner';
+// import Footer from './components/Footer';
+// import PageHome from './components/PageHome';
+// import PageCatalog from './components/PageCatalog';
+// import PageAbout from './components/PageAbout';
+// import PageContacts from './components/PageContacts';
+// import Page404 from './components/Page404';
+// import PageProduct from './components/PageProduct';
+// import PageCart from './components/PageCart';
+import MainPage from './components/PageMain/MainPage';
+
 // eslint-disable-next-line
 // import regeneratorRuntime from 'regenerator-runtime';
+import './css/MainPage.css'
 import './App.css';
 require.context('./img');
 
@@ -19,6 +22,12 @@ export default function App() {
   return (
     <React.Fragment>
       <Router>
+        <MainPage />
+      </Router>
+
+      {/* <AboutUs /> */}
+      {/* <MainPage /> */}
+      {/* <Router>
         <Header />
         <main className="container">
           <div className="row">
@@ -37,7 +46,7 @@ export default function App() {
           </div>
         </main>
         <Footer />
-      </Router>
+      </Router> */}
     </React.Fragment>
   );
 }

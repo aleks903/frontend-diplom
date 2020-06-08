@@ -1,0 +1,728 @@
+
+.seats-title {
+  font-weight: 500;
+  font-size: 30px;
+  text-transform: uppercase;
+  color: #292929;
+}
+
+.seats-select_departure, .seats-select_departure-back {
+  width: 959px;
+  background: #FFFFFF;
+  border: 1px solid #C4C4C4;
+  box-sizing: border-box;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+  margin-top: 60px;
+}
+
+.seats-select_departure_header {
+  display: flex;
+  padding: 35px 0 30px 20px;
+}
+
+.seats-select_departure-back .seats-select_departure_header {
+  justify-content: flex-end;
+  padding-right: 25px;
+}
+
+.seats_departure-vector {
+  display: flex;
+  width: 76px;
+  height: 60px;
+  background-image: url(../img/icons/departure-vector.png);
+  margin-right: 10px;
+}
+
+.seats-select_departure-back .seats_departure-vector {
+  background-image: url(../img/icons/departure-back-vector.png);
+}
+
+.change-other-train_button {
+  width: 325px;
+  height: 60px;
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+  color: #292929;
+  border: 1px solid #292929;
+  box-sizing: border-box;
+  border-radius: 5px;
+  background-color: transparent;
+}
+
+.change-other-train_button:hover {
+  border-color: #FFA800;
+  color: #FFA800;
+  box-shadow: 0px 2px 2px rgba(62, 60, 65, 0.25);
+}
+
+.seats_train-description-wrap {
+  display: flex;
+  width: 957px;
+  height: 123px;
+  background: #F7F6F6;
+}
+
+.seats_train-description {
+  display: flex;
+  align-items: center;
+  padding-right: 30px;
+  padding-left: 35px;
+  border-right: 1px solid #FFFFFF;
+}
+
+.train-vector-small {
+  display: flex;
+  width: 30px; height: 30px;
+  background-image: url(../img/icons/icon_choice_train.png);
+  margin-right: 25px;
+}
+
+.seats_train-number {
+  font-weight: 700;
+  font-size: 24px;
+  color: #3E3C41;
+}
+
+.seats_train-route {
+  list-style: none;
+  align-items: baseline;
+  font-size: 16px;
+  color: #292929;
+}
+
+.seats_train-route li {
+  display: flex;
+  align-items: baseline;
+}
+
+.seats_train-shipment-scheme {
+  width: 475px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 25px 50px 25px 40px;
+  border-right: 1px solid #FFFFFF;
+}
+
+.train-departure-time-wrap, .train-arrival-time {
+  width: auto;
+}
+
+.seats_travel-time-vector {
+  display: flex;
+  width: 30px;
+  height: 20px;
+  background-image: url(../img/icons/icon_search_there.png);
+}
+
+.seats_travel-time-vector-reverse {
+  display: flex;
+  width: 30px;
+  height: 20px;
+  background-image: url(../img/icons/icon_search_back.png);
+}
+
+.seats_travel-time {
+  display: flex;
+  align-items: center;
+  padding-left: 25px;
+}
+
+.clockworkOrange-vector {
+  display: flex;
+  width: 30px;
+  height: 30px;
+  background: url(../img/icons/icon_choice_time.png);
+  margin-right: 10px;
+}
+
+.travel-time_wrap p {
+  font-size: 18px;
+  color: #000000;
+}
+
+.amount-tickets {
+  padding-top: 40px;
+  padding-bottom: 50px;
+  border-bottom: 1px dotted #cbcbcb;
+}
+
+.ticket-count-title, .wagon-type-title {
+  font-weight: 700;
+  font-size: 30px;
+  color: #292929; 
+  padding-left: 20px;
+}
+
+.ticket-count-container {
+  display: flex;
+  margin-top: 30px;
+}
+
+.ticket-count {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 317px;
+  padding: 20px 40px 25px 35px;
+}
+
+.active-count  {
+  background: #F7F6F6;
+  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.25);
+}
+
+.active-count .seat-description {
+  color: #000000;
+}
+
+.ticket-count:hover {
+  border: 1px solid rgba(255, 168, 0, 0.79);
+  box-sizing: border-box;
+}
+
+.count-screen {
+  width: 240px;
+  height: 50px;
+  background: #FFFFFF;
+  border: 1px solid #928F94;
+  border-radius: 5px;
+  font-size: 18px;
+  padding-left: 15px;
+  padding-top: 13px;
+  margin-bottom: 25px;
+}
+
+.seat-description {
+  font-size: 16px;
+  color: #928F94;
+}
+
+.wagon {
+  padding-top: 35px;
+  padding-bottom: 30px;
+}
+
+.wagon-types-list {
+  list-style: none;
+  display: flex;
+  justify-content: space-evenly;
+  padding: 0;
+  margin: 16px 0 32px 0;
+}
+
+.wagon-type, .wagon-type-active {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 24px;
+  color: #928F94;
+}
+
+.wagon-type:hover {
+  color: #FFA800;
+}
+
+.wagon-type_vector, .wagon-type_vector-active{
+display: flex;
+}
+
+.seat .wagon-type_vector {
+  width: 31px;
+  height: 50px;
+  background-image: url(../img/icons/icon_type_vagon_seat.png);
+}
+
+.platzKarte .wagon-type_vector {
+  width: 50px;
+  height: 50px;
+  background-image: url(../img/icons/icon_type_vagon_reserved_seat.png);
+}
+
+.coupe .wagon-type_vector {
+  width: 50px;
+  height: 50px;
+  background-image: url(../img/icons/icon_type_vagon_coupe.png);
+}
+
+.luxury .wagon-type_vector {
+  width: 57px;
+  height: 50px;
+  background-image: url(../img/icons/icon_type_vagon_luxury.png);
+}
+
+.seat-active, .platzKarte-active, .coupe-active, .luxury-active {
+  color: #FFA800;
+}
+
+ .seat-active .wagon-type_vector-active, .seat:hover .wagon-type_vector {
+  width: 31px;
+  height: 50px;
+  background-image: url(../img/icons/icon_type_vagon_seat_checked.png);
+}
+
+ .platzKarte-active .wagon-type_vector-active, .platzKarte:hover .wagon-type_vector {
+  background-image: url(../img/icons/icon_type_vagon_reserved_seat_checked.png);
+}
+
+ .coupe-active .wagon-type_vector-active, .coupe:hover .wagon-type_vector {
+  width: 50px;
+  height: 50px;
+  background-image: url(../img/icons/icon_type_vagon_coupe_checked.png);
+}
+
+.luxury-active .wagon-type_vector-active, .luxury:hover .wagon-type_vector {
+  background-image: url(../img/icons/icon_type_vagon_luxury_checked.png);
+}
+
+.wagon-numbers {
+  display: flex;
+  align-items: center;
+  width: 958px;
+  height: 37px;
+  background: rgba(255, 168, 0, 0.44);
+}
+
+.wagon-numbers-list {
+  display: flex;
+  list-style: none;
+}
+
+.wagon-numbers-list li {
+  margin-left: 10px;
+  cursor: pointer;
+}
+
+.wagon-number, .active-wagon-number, .numbers-title {
+  font-weight: 700;
+  font-size: 24px;
+  text-align: center;
+  color: #2D2B2F;
+}
+
+.numbers-title {
+  font-size: 18px;
+  padding-left: 30px;
+}
+
+.active-wagon-number {
+  color: #FFFFFF;
+}
+
+.number-disclamer {
+  font-size: 16px;
+  color: #292929;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.seat-select-form {
+  display: flex;
+  /* padding-top: 30px; */
+}
+
+.seat-select-form ~ .seat-select-form {
+  padding-top: 30px;
+  border-top: 1px dashed #c4c4c4;
+  margin-top: 30px;
+}
+
+.big-wagon-num {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  background: #FFD98F;
+  width: 190px;
+  height: 161px;
+  font-size: 24px;
+  text-align: center;
+  color: #292929;
+}
+
+.big-num {
+  font-weight: bold;
+  font-size: 72px;
+}
+
+.wagon-description {
+  padding-top: 30px;
+  padding-left: 85px;
+}
+
+.wagon-description,.seats-price,.seats-position {
+  display: flex;
+}
+
+.wagon-description p:first-child, .available-seats, .seats-position, .seats-price, .service-company-name, .facilities-vector{
+  font-size: 18px;
+  color: #928F94;
+  margin: 0;
+}
+
+.seats-positions, .seats-prices {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.available-seats {
+  font-size: 24px;
+  font-weight: 700;
+  color: #000000;
+  padding-left: 5px;
+}
+
+.seats-prices, .wagon-facilities {
+  padding-left: 110px;
+}
+
+.seats-prices h3 {
+  display: flex;
+  align-items: center;
+  height: 29px;
+}
+
+.seats-position {
+  font-size: 24px;
+  color: #000000;
+}
+
+.seats-price {
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+  align-items: baseline;
+}
+
+.wagon-facilities h3 {
+  display: flex;
+  align-items: center;
+  height: 29px;
+}
+
+.service-company-name {
+  text-transform: uppercase;
+  color: #C4C4C4;
+  padding-left: 5px;
+}
+
+.facilities-list {
+  display: flex;
+  list-style: none;
+  margin-top: 20px;
+}
+
+.facilities-vector {
+  width: 36px;
+  height: 35px;
+  border: 1px solid #292929;
+  box-sizing: border-box;
+  border-radius: 5px;
+  margin-right: 10px;
+  background-position: center;
+  background-repeat: no-repeat;
+  cursor: pointer;
+}
+
+.facilities-vector:hover {
+  background-color: #FFA800;
+  border-radius: 5px;
+  border: 1px solid #292929;
+}
+
+.conditioner {
+  background-image: url(../img/icons/conditioner.png);
+}
+
+.wifi {
+  background-image: url(../img/icons/wi-fi.png);
+}
+
+.linens {
+  background-image: url(../img/icons/linens.png);
+}
+
+.food {
+  background-image: url(../img/icons/food.png);
+}
+
+.facilities-vector:hover.conditioner::after,.facilities-vector:hover.wifi::after,.facilities-vector:hover.linens::after, .facilities-vector:hover.food::after {
+  display: flex;
+  position: relative;
+  top: 40px;
+  left: -48px;
+  justify-content: center;
+  align-items: center;
+  content: attr(data-title);
+  width: 130px;
+  height: 32px;
+  background: #E5E5E5;
+  border-radius: 5px;
+  font-size: 16px;
+  color: #292929;
+  z-index: 1;
+}
+
+.conditioner-included {
+  background-image: url(../img/icons/conditioner-include.png);
+}
+
+.facilities-vector:hover.conditioner-included {
+  background-image: url(../img/icons/conditioner.png);
+  background-color: #FFA800;
+}
+
+.wifi-included {
+  background-image: url(../img/icons/wi-fi-include.png);
+}
+
+.facilities-vector:hover.wifi-included {
+  background-image: url(../img/icons/wi-fi.png);
+  background-color: #FFA800;
+}
+
+.linens-included {
+  background-image: url(../img/icons/linens-include.png);
+}
+
+.facilities-vector:hover.linens-included {
+  background-image: url(../img/icons/linens.png);
+  background-color: #FFA800;
+}
+
+.food-included {
+  background-image: url(../img/icons/food-include.png);
+}
+
+.facilities-vector:hover.food-included {
+  background-image: url(../img/icons/food.png);
+  background-color: #FFA800;
+}
+
+.included {
+  border: none;
+  background-color: #FCDC9D;
+}
+
+.conditioner-active {
+  background-image: url(../img/icons/conditioner-active.png);
+}
+
+.facilities-vector:hover.conditioner-active {
+  background-image: url(../img/icons/conditioner.png);
+  background-color: #FFA800;
+}
+
+.wifi-active {
+  background-image: url(../img/icons/wi-fi-active.png);
+}
+
+.facilities-vector:hover.wifi-active {
+  background-image: url(../img/icons/wi-fi.png);
+  background-color: #FFA800;
+}
+
+.linens-active {
+  background-image: url(../img/icons/linens-active.png);
+}
+
+.facilities-vector:hover.linens-active {
+  background-image: url(../img/icons/linens.png);
+  background-color: #FFA800;
+}
+
+.food-active {
+  background-image: url(../img/icons/food-active.png);
+}
+
+.facilities-vector:hover.food-active {
+  background-image: url(../img/icons/food.png);
+  background-color: #FFA800;
+}
+
+.active {
+  border: none;
+  background-color: #FDB935;
+  border-radius: 5px;
+}
+
+.seats-disclamer {
+  width: 199px;
+  height: 72px;
+  font-size: 16px;
+  color: #292929;
+  background: #F3F3F3;
+  border-radius: 5px;
+  margin-left: auto;
+  margin-right: 40px;
+}
+
+.seats-disclamer p {
+  width: 170px;
+  height: 45px;
+  margin: 0 auto;
+  padding-top: 12px;
+}
+
+.seats-scheme {
+  display: flex;
+  flex-direction: column;
+  width: 921px;
+  height: 145px;
+  margin: 0 auto 30px auto;
+}
+
+.standart {
+  background-image: url(../img/wagon-schemes/standart-wagon.png);
+  background-repeat: no-repeat;
+}
+
+.seat-type {
+  background-image: url(../img/wagon-schemes/seat-wagon.png);
+  background-repeat: no-repeat;
+}
+
+.seats-scheme ul {
+  list-style: none;
+  margin: 0;
+  cursor: pointer;
+}
+
+.scheme_wagon-number {
+  position: relative;
+  left: 40px;
+  width: 34px;
+  height: 25px;
+  background-color: #000000;
+  color: #F7F6F6;
+  text-align: center;
+  line-height: 25px;
+}
+
+.scheme_top-seats, .scheme_bottom-seats, .scheme_side-seats, .seat-type ul {
+  display: flex;
+  position: relative;
+  text-align: center;
+  font-weight: 700;
+  line-height: 25px;
+  padding-left: 129px
+}
+
+.scheme_side-seats {
+  padding: 25px 0 0 130px;
+}
+
+.place_is_taken {
+  width: 16px;
+  background-color: #C4C4C4;
+  color: #F7F6F6;
+}
+
+.available-place {
+  width: 16px;
+  background-color: #E5E5E5;
+  color: #000000;
+}
+
+.available-place:hover {
+  color: #FFA800;
+}
+
+.scheme_top-seats li {
+  height: 29px;
+  width: 26px;
+  border-top: 4px solid #928f94d6;
+}
+
+.scheme_bottom-seats li {
+  height: 29px;
+  width: 26px;
+  border-bottom: 5px solid #928f94d6;
+}
+
+.scheme_top-seats li:nth-child(odd), .scheme_bottom-seats li:nth-child(odd) {
+  margin-right: 33px;
+}
+
+.scheme_top-seats li:nth-child(2n), .scheme_bottom-seats li:nth-child(2n) {
+  border-right: 4px solid #928f94d6;
+}
+
+.scheme_top-seats li:first-child, .scheme_bottom-seats li:first-child {
+  border-left: 4px solid #928f94d6;
+  margin-right: 35px;
+}
+
+.scheme_top-seats li:last-child, .scheme_bottom-seats li:last-child {
+  margin-left: 3px;
+}
+
+.total-price {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  font-size: 24px;
+  font-weight: 700;
+  color: #FFA800;
+  margin-right: 35px;
+}
+
+.scheme_side-seats {
+  display: flex;
+}
+
+.scheme_side-seats li {
+  height: 29px;
+  width: 43px;
+  border-bottom: 5px solid #928f94d6;
+}
+
+.platzKarte-wagon .scheme_bottom-seats li {
+  height: 34px;
+  border-bottom: 0;
+}
+
+.scheme_side-seats li:first-child {
+  width: 40px;
+  border-left: 4px solid #928f94d6;
+}
+
+.scheme_side-seats li:last-child {
+  width: 41px;
+}
+
+.scheme_side-seats li:nth-child(2n) {
+  border-right: 4px solid #928f94d6;
+}
+
+.luxury-wagon .scheme_bottom-seats li {
+  height: 58px;
+  width: 26px;
+  line-height: 50px;
+  border-top: 4px solid #928f94d6;
+  border-bottom: 5px solid #928f94d6;
+}
+
+.seat-type li {
+  height: 19px;
+  width: 27px;
+  margin-left: 17px;
+  line-height: 20px;
+}
+
+.scheme_first_lane-seats {
+  padding: 7px 0 0 0;
+}
+
+.scheme_second_lane-seats{
+  padding: 3px 0 0 0;
+} 
+
+.scheme_third_lane-seats {
+  padding: 20px 0 0 0;
+}
+
+.scheme_fourth_lane-seats {
+  padding: 3px 0 0 0;
+}
