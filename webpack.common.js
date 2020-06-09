@@ -70,11 +70,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               esModule: false,
-              name: file => {
-                let dirNameInsideAssets = path.relative(path.join(__dirname, 'src'), path.dirname(file));
-                
-                return `${dirNameInsideAssets}/[name].[ext]`;
-              }
+              name: '[img]/[name].[ext]'
             },
           },
         ],

@@ -1,5 +1,5 @@
 .trainSelect_header {
-  background-image: url(../Pictures/OrderEnd_header-background.png);
+  background-image: url(../img/OrderEnd_header-background.png);
   background-position: 0 82%;
 }
 
@@ -113,15 +113,15 @@
 }
 
 .first {
-  background-image: url(../img/icons/icon_order_ticket_send.png);
+  background-image: url(../img/icon_order_ticket_send.png);
 }
 
 .second {
-  background-image: url(../img/icons/icon_order_ticket_print.png);
+  background-image: url(../img/icon_order_ticket_print.png);
 }
 
 .last {
-  background-image: url(../img/icons/icon_order_ticket_present.png);
+  background-image: url(../img/icon_order_ticket_present.png);
 }
 
 .order-end_message {
@@ -185,19 +185,15 @@
   width: 46px;
   height: 44px;
   margin-left: 30px;
-  background: url(../Pictures/icons/css_sprites.png) -619px -290px;
+  background-image: url(../img/star.png);
 }
 
-.star-vector:hover {
-  background: url(../Pictures/icons/css_sprites.png) -254px -424px;
-}
-
-.star-vector .active {
-  background: url(../Pictures/icons/css_sprites.png) -254px -424px;
+.star-vector:hover, .star-vector .active {
+  background-image: url(../img/star-hover.png);
 }
 
 .star-vector .inactive {
-  background: url(../Pictures/icons/css_sprites.png) -351px -424px;
+  background-image: url(../img/start-inactive.png);
 }
 
 .back-to-main {

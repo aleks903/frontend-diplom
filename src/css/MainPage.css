@@ -138,14 +138,14 @@ button {
 }
 
 .from_search, .where_search {
-  background-image: url(../img/icons/points-vector.png);
+  background-image: url(../img/points-vector.png);
   background-repeat: no-repeat;
   background-position-x: 285px;
   background-position-y: center;
 }
 
 .departure-date, .departure-date-back {
-  background-image: url(../img/icons/date-vector.png);
+  background-image: url(../img/date-vector.png);
   background-repeat: no-repeat;
   background-position-x: 285px;
   background-position-y: center;
@@ -159,7 +159,7 @@ button {
   height: 24px;
   width: 24px;
   background-color: transparent;
-  background-image: url(../img/icons/icon_cached_white.png);
+  background-image: url(../img/icon_cached_white.png);
   border: none;
   margin: 0 5px;
   cursor: pointer;
@@ -353,15 +353,15 @@ button {
 }
 
 .how-its-work_content-first-vector {
-  background-image: url(../img/icons/group_icon1.png);
+  background-image: url(../img/group_icon1.png);
 }
 
 .how-its-work_content-second-vector {
-  background-image: url(../img/icons/group_icon2.png);
+  background-image: url(../img/group_icon2.png);
 }
 
 .how-its-work_content-last-vector {
-  background-image: url(../img/icons/group_icon3.png);
+  background-image: url(../img/group_icon3.png);
 }
 
 .how-its-work_content-second, .how-its-work_content-last {
@@ -378,6 +378,15 @@ button {
   flex-direction: column;
 }
 
+.reviews_slider_list {
+  overflow: hidden;
+}
+
+.reviews_slider_list {
+  transition-property: margin-left;
+  transition-duration: 1.5s;
+}
+
 .reviews_title {
   font-weight: bold;
   font-size: 36px;
@@ -388,6 +397,7 @@ button {
 .reviews_slider {
   margin-top: 70px;
   margin-bottom: 120px;
+  overflow: hidden
 }
 
 .reviews_slider_list {
@@ -505,19 +515,19 @@ button {
 }
 
 .phone-vector {
-  background-image: url(../img/icons/icon_phone.png);
+  background-image: url(../img/icon_phone.png);
 }
 
 .mail-vector {
-  background-image: url(../img/icons/icon_message.png);
+  background-image: url(../img/icon_message.png);
 }
 
 .skype-vector {
-  background-image: url(../img/icons/icon_skype.png);
+  background-image: url(../img/icon_skype.png);
 }
 
 .adress-vector {
-  background-image: url(../img/icons/points-vector.png);
+  background-image: url(../img/points-vector.png);
 }
 
 .footer-wrap_subscribe {
@@ -587,43 +597,43 @@ input::-webkit-input-placeholder {
 }
 
 .youtube-vector {
-  background-image: url(../img/icons/icon_footer_youtube.png);
+  background-image: url(../img/icon_footer_youtube.png);
 }
 
 .youtube-vector:active {
-  background-image: url(../img/icons/icon_footer_youtube_checked.png);
+  background-image: url(../img/icon_footer_youtube_checked.png);
 }
 
 .linkedIn-vector {
-  background-image: url(../img/icons/icon_footer_in.png);
+  background-image: url(../img/icon_footer_in.png);
 }
 
 .linkedIn-vector:active {
-  background-image: url(../img/icons/icon_footer_in_checked.png);
+  background-image: url(../img/icon_footer_in_checked.png);
 }
 
 .google-vector {
-  background-image: url(../img/icons/google_plus.png);
+  background-image: url(../img/google_plus.png);
 }
 
 .google-vector:active {
-  background-image: url(../img/icons/icon_footer_google_plus_checked.png);
+  background-image: url(../img/icon_footer_google_plus_checked.png);
 }
 
 .facebook-vector {
-  background-image: url(../img/icons/facebook.png);
+  background-image: url(../img/facebook.png);
 }
 
 .facebook-vector:active {
-  background-image: url(../img/icons/icon_footer_facebook_checked.png);
+  background-image: url(../img/icon_footer_facebook_checked.png);
 }
 
 .twitter-vector {
-  background-image: url(../img/icons/twitter.png);
+  background-image: url(../img/twitter.png);
 }
 
 .twitter-vector:active {
-  background-image: url(../img/icons/icon_footer_twitter_checked.png);
+  background-image: url(../img/icon_footer_twitter_checked.png);
 }
 
 .footer-wrap_subscribe-social-list li {
@@ -652,7 +662,7 @@ input::-webkit-input-placeholder {
 .pageUp-vector {
   width: 36px; 
   height: 36px;
-  background-image: url(../img/icons/footer_bottom.png);
+  background-image: url(../img/footer_bottom.png);
 }
 
 .footer-end p {

@@ -135,7 +135,7 @@
 }
 
 .pay-data-payType_form input:checked+.checkbox-element {
-  background-image: url(../img/icons/check.png);
+  background-image: url(../img/check.png);
   background-repeat: no-repeat;
   background-position: center;
   border: 1px solid #FFA800;

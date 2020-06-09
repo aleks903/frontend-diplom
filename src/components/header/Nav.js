@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 
 export default function Header() {
   const onLinkClick = () => {
@@ -13,19 +13,15 @@ export default function Header() {
         <ul className="top-menu_nav-items">
           <li className="top-menu_nav-item">
             <Link to="/#about-us">О нас</Link>
-            {/* <a href="#about-us">О нас</a> */}
           </li>
           <li className="top-menu_nav-item">
             <Link to="/#how-it-works" onClick={onLinkClick}>Как это работает</Link>
-            {/* <a href="#how-its-work">Как это работает</a> */}
           </li>
           <li className="top-menu_nav-item">
             <Link to="/#reviews" onClick={onLinkClick}>Отзывы</Link>
-            {/* <a href="#reviews">Отзывы</a> */}
           </li>
           <li className="top-menu_nav-item">
             <Link to="/#contacts" onClick={onLinkClick}>Контакты</Link>
-            {/* <a href="#contacts">Контакты</a> */}
           </li>
         </ul>
       </nav>
