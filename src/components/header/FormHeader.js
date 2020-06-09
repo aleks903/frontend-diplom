@@ -1,15 +1,39 @@
 import React from 'react';
+import DirectionSearch from '../elements/DirectionSearch';
+
 
 export default function FormHeader() {
+
+  const handleSelectFrom = (item) => {
+    console.log(item);
+  }
+
+  const handleSelectWhere = (item) => {
+    console.log(item);
+  }
+
   return (
     <form className="header-content_search-form">
     <div className="block-input">
       <div className="direction-form">
         <p className="form_title">Направление</p>
         <div className="element-inputs">
-          <input className="search-form_input from_search" placeholder="Откуда" />
+          {/* <input className="search-form_input from_search" placeholder="Откуда" /> */}
+          <DirectionSearch
+            classElement='from_search'
+            placeholderElement='Откуда'
+            initValue=''
+            selecCity={handleSelectFrom}
+          />
+
           <div className="reverse-points"></div>
-          <input className="search-form_input where_search" placeholder="Куда" />
+          {/* <input className="search-form_input where_search" placeholder="Куда" /> */}
+          <DirectionSearch
+            classElement='where_search'
+            placeholderElement='Куда'
+            initValue=''
+            selecCity={handleSelectWhere}
+          />
         </div>
       </div>
       <div className="data-form">

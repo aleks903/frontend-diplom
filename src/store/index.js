@@ -5,6 +5,9 @@ import {
   compose,
 } from 'redux';
 import { combineEpics, createEpicMiddleware } from 'redux-observable';
+// epics
+import { directionSearchEpic } from '../epics/directionSearchEpic';
+// old
 import { topSalesEpics } from '../epics/topSalesEpics';
 import {
   fetchCatalogCategoriesEpics,
@@ -14,6 +17,9 @@ import {
 } from '../epics/catalogEpics';
 import { productEpics } from '../epics/productEpics';
 import { sendOrderEpics } from '../epics/sendOrderEpics';
+// Reducer
+import directionSearchReducer from '../reducers/directionSearchReducer';
+// old
 import topSalesReducer from '../reducers/topSalesReducer';
 import catalogReducer from '../reducers/catalogReducer';
 import productReducer from '../reducers/productReducer';
@@ -21,6 +27,8 @@ import basketProductReducer from '../reducers/basketProductReducer';
 import sendOrderReducer from '../reducers/sendOrderReducer';
 
 const reducer = combineReducers({
+  serchDirection: directionSearchReducer,
+  // old
   topSalesList: topSalesReducer,
   catalogList: catalogReducer,
   productItem: productReducer,
@@ -29,6 +37,8 @@ const reducer = combineReducers({
 });
 
 const epic = combineEpics(
+  directionSearchEpic,
+  // old
   topSalesEpics,
   fetchCatalogCategoriesEpics,
   fetchCatalogItemsEpics,

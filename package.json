@@ -52,6 +52,7 @@
     "react-router-hash-link": "^1.2.2",
     "react-scripts": "^3.4.1",
     "redux-observable": "^1.2.0",
-    "redux-thunk": "^2.3.0"
+    "redux-thunk": "^2.3.0",
+    "rxjs": "^6.5.5"
   }
 }
