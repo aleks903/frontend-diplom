@@ -1,16 +1,64 @@
-import React from 'react';
+import React, { useState } from 'react';
+import moment from 'moment';
 import DirectionSearch from '../elements/DirectionSearch';
-
+import DateInput from '../elements/DateInput';
 
 export default function FormHeader() {
+  const [dataSearchTickets, setDataSearchTickets] = useState({
+    fromCity: {},
+    whereCity: {},
+    fromDate: '',
+    whereDate: '',
+  });
+  const [initCity, setInitCity] = useState({
+    nameFrom: '',
+    nameWhere: '',
+  });
 
   const handleSelectFrom = (item) => {
     console.log(item);
+    setDataSearchTickets((prevState) => ({...prevState, fromCity: item}));
   }
 
   const handleSelectWhere = (item) => {
-    console.log(item);
+    // console.log(item);
+    setDataSearchTickets((prevState) => ({...prevState, whereCity: item}));
   }
+
+  const handleFromDate = (item) => {
+
+    console.log(item);
+    console.log(dataSearchTickets.whereDate);
+    console.log(moment(item).isAfter(dataSearchTickets.whereDate));
+    
+    if (moment(item).isBefore(dataSearchTickets.whereDate)) {
+      setDataSearchTickets((prevState) => ({...prevState, fromDate: item, whereDate: item}));
+    } else {
+      setDataSearchTickets((prevState) => ({...prevState, fromDate: item}));
+    };
+  }
+
+  const handleWhereDate = (item) => {
+    setDataSearchTickets((prevState) => ({...prevState, whereDate: item}));
+  }
+
+  const handleRevers = () => {
+    const reverseCity = {
+      newFrom: dataSearchTickets.whereCity,
+      newWhere: dataSearchTickets.fromCity,
+    };
+    setInitCity({
+      nameFrom: reverseCity.newFrom.name,
+      nameWhere: reverseCity.newWhere.name,
+    });
+    setDataSearchTickets((prevState) => ({
+      ...prevState,
+      fromCity: reverseCity.newFrom,
+      whereCity: reverseCity.newWhere,
+    }));
+  };
+
+  console.log(dataSearchTickets);
 
   return (
     <form className="header-content_search-form">
@@ -22,16 +70,16 @@ export default function FormHeader() {
           <DirectionSearch
             classElement='from_search'
             placeholderElement='Откуда'
-            initValue=''
+            initValue={initCity.nameFrom}
             selecCity={handleSelectFrom}
           />
 
-          <div className="reverse-points"></div>
+          <div className="reverse-points" onClick={handleRevers}></div>
           {/* <input className="search-form_input where_search" placeholder="Куда" /> */}
           <DirectionSearch
             classElement='where_search'
             placeholderElement='Куда'
-            initValue=''
+            initValue={initCity.nameWhere}
             selecCity={handleSelectWhere}
           />
         </div>
@@ -39,8 +87,19 @@ export default function FormHeader() {
       <div className="data-form">
         <p className="form_title">Дата</p>
         <div className="element-inputs">
-          <input type="text" className="search-form_input departure-date" placeholder="ДД/ММ/ГГ" />
-          <input type="text" className="search-form_input departure-date-back" placeholder="ДД/ММ/ГГ" />
+          <DateInput
+            classElement='departure-date'
+            selectDate={handleFromDate}
+            initDate={dataSearchTickets.fromDate}
+          />
+          {/* <input type="text" className="search-form_input departure-date" placeholder="ДД/ММ/ГГ" /> */}
+          <DateInput
+            classElement='departure-date-back'
+            selectDate={handleWhereDate}
+            initDate={dataSearchTickets.whereDate}
+            minValueDate={dataSearchTickets.fromDate}
+          />
+          {/* <input type="text" className="search-form_input departure-date-back" placeholder="ДД/ММ/ГГ" /> */}
         </div>
       </div>
     </div>

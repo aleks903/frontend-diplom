@@ -29,12 +29,12 @@
   display: flex;
   width: 76px;
   height: 60px;
-  background-image: url(../img/icons/departure-vector.png);
+  background-image: url(../img/departure-vector.png);
   margin-right: 10px;
 }
 
 .seats-select_departure-back .seats_departure-vector {
-  background-image: url(../img/icons/departure-back-vector.png);
+  background-image: url(../img/departure-back-vector.png);
 }
 
 .change-other-train_button {
@@ -74,7 +74,7 @@
 .train-vector-small {
   display: flex;
   width: 30px; height: 30px;
-  background-image: url(../img/icons/icon_choice_train.png);
+  background-image: url(../img/icon_choice_train.png);
   margin-right: 25px;
 }
 
@@ -113,14 +113,14 @@
   display: flex;
   width: 30px;
   height: 20px;
-  background-image: url(../img/icons/icon_search_there.png);
+  background-image: url(../img/icon_search_there.png);
 }
 
 .seats_travel-time-vector-reverse {
   display: flex;
   width: 30px;
   height: 20px;
-  background-image: url(../img/icons/icon_search_back.png);
+  background-image: url(../img/icon_search_back.png);
 }
 
 .seats_travel-time {
@@ -133,7 +133,7 @@
   display: flex;
   width: 30px;
   height: 30px;
-  background: url(../img/icons/icon_choice_time.png);
+  background: url(../img/icon_choice_time.png);
   margin-right: 10px;
 }
 
@@ -231,25 +231,25 @@ display: flex;
 .seat .wagon-type_vector {
   width: 31px;
   height: 50px;
-  background-image: url(../img/icons/icon_type_vagon_seat.png);
+  background-image: url(../img/icon_type_vagon_seat.png);
 }
 
 .platzKarte .wagon-type_vector {
   width: 50px;
   height: 50px;
-  background-image: url(../img/icons/icon_type_vagon_reserved_seat.png);
+  background-image: url(../img/icon_type_vagon_reserved_seat.png);
 }
 
 .coupe .wagon-type_vector {
   width: 50px;
   height: 50px;
-  background-image: url(../img/icons/icon_type_vagon_coupe.png);
+  background-image: url(../img/icon_type_vagon_coupe.png);
 }
 
 .luxury .wagon-type_vector {
   width: 57px;
   height: 50px;
-  background-image: url(../img/icons/icon_type_vagon_luxury.png);
+  background-image: url(../img/icon_type_vagon_luxury.png);
 }
 
 .seat-active, .platzKarte-active, .coupe-active, .luxury-active {
@@ -259,21 +259,21 @@ display: flex;
  .seat-active .wagon-type_vector-active, .seat:hover .wagon-type_vector {
   width: 31px;
   height: 50px;
-  background-image: url(../img/icons/icon_type_vagon_seat_checked.png);
+  background-image: url(../img/icon_type_vagon_seat_checked.png);
 }
 
  .platzKarte-active .wagon-type_vector-active, .platzKarte:hover .wagon-type_vector {
-  background-image: url(../img/icons/icon_type_vagon_reserved_seat_checked.png);
+  background-image: url(../img/icon_type_vagon_reserved_seat_checked.png);
 }
 
  .coupe-active .wagon-type_vector-active, .coupe:hover .wagon-type_vector {
   width: 50px;
   height: 50px;
-  background-image: url(../img/icons/icon_type_vagon_coupe_checked.png);
+  background-image: url(../img/icon_type_vagon_coupe_checked.png);
 }
 
 .luxury-active .wagon-type_vector-active, .luxury:hover .wagon-type_vector {
-  background-image: url(../img/icons/icon_type_vagon_luxury_checked.png);
+  background-image: url(../img/icon_type_vagon_luxury_checked.png);
 }
 
 .wagon-numbers {
@@ -432,19 +432,19 @@ display: flex;
 }
 
 .conditioner {
-  background-image: url(../img/icons/conditioner.png);
+  background-image: url(../img/conditioner.png);
 }
 
 .wifi {
-  background-image: url(../img/icons/wi-fi.png);
+  background-image: url(../img/wi-fi.png);
 }
 
 .linens {
-  background-image: url(../img/icons/linens.png);
+  background-image: url(../img/linens.png);
 }
 
 .food {
-  background-image: url(../img/icons/food.png);
+  background-image: url(../img/food.png);
 }
 
 .facilities-vector:hover.conditioner::after,.facilities-vector:hover.wifi::after,.facilities-vector:hover.linens::after, .facilities-vector:hover.food::after {
@@ -465,38 +465,38 @@ display: flex;
 }
 
 .conditioner-included {
-  background-image: url(../img/icons/conditioner-include.png);
+  background-image: url(../img/conditioner-include.png);
 }
 
 .facilities-vector:hover.conditioner-included {
-  background-image: url(../img/icons/conditioner.png);
+  background-image: url(../img/conditioner.png);
   background-color: #FFA800;
 }
 
 .wifi-included {
-  background-image: url(../img/icons/wi-fi-include.png);
+  background-image: url(../img/wi-fi-include.png);
 }
 
 .facilities-vector:hover.wifi-included {
-  background-image: url(../img/icons/wi-fi.png);
+  background-image: url(../img/wi-fi.png);
   background-color: #FFA800;
 }
 
 .linens-included {
-  background-image: url(../img/icons/linens-include.png);
+  background-image: url(../img/linens-include.png);
 }
 
 .facilities-vector:hover.linens-included {
-  background-image: url(../img/icons/linens.png);
+  background-image: url(../img/linens.png);
   background-color: #FFA800;
 }
 
 .food-included {
-  background-image: url(../img/icons/food-include.png);
+  background-image: url(../img/food-include.png);
 }
 
 .facilities-vector:hover.food-included {
-  background-image: url(../img/icons/food.png);
+  background-image: url(../img/food.png);
   background-color: #FFA800;
 }
 
@@ -506,38 +506,38 @@ display: flex;
 }
 
 .conditioner-active {
-  background-image: url(../img/icons/conditioner-active.png);
+  background-image: url(../img/conditioner-active.png);
 }
 
 .facilities-vector:hover.conditioner-active {
-  background-image: url(../img/icons/conditioner.png);
+  background-image: url(../img/conditioner.png);
   background-color: #FFA800;
 }
 
 .wifi-active {
-  background-image: url(../img/icons/wi-fi-active.png);
+  background-image: url(../img/wi-fi-active.png);
 }
 
 .facilities-vector:hover.wifi-active {
-  background-image: url(../img/icons/wi-fi.png);
+  background-image: url(../img/wi-fi.png);
   background-color: #FFA800;
 }
 
 .linens-active {
-  background-image: url(../img/icons/linens-active.png);
+  background-image: url(../img/linens-active.png);
 }
 
 .facilities-vector:hover.linens-active {
-  background-image: url(../img/icons/linens.png);
+  background-image: url(../img/linens.png);
   background-color: #FFA800;
 }
 
 .food-active {
-  background-image: url(../img/icons/food-active.png);
+  background-image: url(../img/food-active.png);
 }
 
 .facilities-vector:hover.food-active {
-  background-image: url(../img/icons/food.png);
+  background-image: url(../img/food.png);
   background-color: #FFA800;
 }
 
@@ -574,12 +574,12 @@ display: flex;
 }
 
 .standart {
-  background-image: url(../img/wagon-schemes/standart-wagon.png);
+  background-image: url(../img/standart-wagon.png);
   background-repeat: no-repeat;
 }
 
 .seat-type {
-  background-image: url(../img/wagon-schemes/seat-wagon.png);
+  background-image: url(../img/seat-wagon.png);
   background-repeat: no-repeat;
 }
 

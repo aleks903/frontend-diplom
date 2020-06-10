@@ -155,7 +155,7 @@
   display: flex;
   width: 26px;
   height: 26px;
-  background-image: url(../img/icons/icon_passanger.png);
+  background-image: url(../img/icon_passanger.png);
   margin: 0 9px 0 0;
 }
 
@@ -229,7 +229,7 @@
   display: flex;
   width: 32px;
   height: 32px;
-  background-image: url(../img/icons/icon_minus_circle.png);
+  background-image: url(../img/icon_minus_circle.png);
   margin: 35px 35px 0 35px;
   cursor: pointer;
 }
@@ -240,20 +240,20 @@
   height: 32px;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url(../img/icons/icon_plus_sircle.png);
+  background-image: url(../img/icon_plus_sircle.png);
   margin: 35px 35px 0 35px;
   cursor: pointer;
 }
 
 .data-skip-vector-active:hover {
-  background-image: url(../img/icons/icon_plus_small_yellow.png);
+  background-image: url(../img/icon_plus_small_yellow.png);
 }
 
 .data-delete-vector {
   display: flex;
   width: 12px;
   height: 12px;
-  background-image: url(../img/icons/x-vector.png);
+  background-image: url(../img/x-vector.png);
   margin: 45px 0 0 620px;
   cursor: pointer;
 }
@@ -262,7 +262,7 @@
   display: flex;
   width: 20px;
   height: 20px;
-  background-image: url(../img/icons/icon_plus_small_yellow.png);
+  background-image: url(../img/icon_plus_small_yellow.png);
   margin: 45px 0 0 500px;
 }
 
@@ -421,7 +421,7 @@
   display: flex;
   width: 32px;
   height: 32px;
-  background-image: url(../img/icons/noErrors.png);
+  background-image: url(../img/noErrors.png);
   margin: 0 0 0 35px;
 }
 
@@ -442,7 +442,7 @@
   display: flex;
   width: 32px;
   height: 32px;
-  background: url(../img/icons/error.png);
+  background: url(../img/error.png);
   margin: 0 0 0 35px;
 }
 

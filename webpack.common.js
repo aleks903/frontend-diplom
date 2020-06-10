@@ -70,7 +70,7 @@ module.exports = {
             loader: 'file-loader',
             options: {
               esModule: false,
-              name: '[img]/[name].[ext]'
+              name: 'img/[name].[ext]'
             },
           },
         ],

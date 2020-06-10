@@ -14,7 +14,8 @@ import MainPage from './components/PageMain/MainPage';
 
 // eslint-disable-next-line
 // import regeneratorRuntime from 'regenerator-runtime';
-import './css/MainPage.css'
+import './css/MainPage.css';
+import './css/style.css';
 import './App.css';
 require.context('./img');
 

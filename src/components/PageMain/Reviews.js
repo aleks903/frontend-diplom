@@ -5,22 +5,22 @@ export default function Reviews() {
   const reviewsUser = [
     {
       userName: 'Екатерина Вальнова',
-      img: './img/usersPic/first-test-user-photo.png',
+      img: './img/first-test-user-photo.png',
       text: 'Доброжелательные подсказки на всех этапах помогут правильно заполнить поля и без затруднений купить авиа или ж/д билет, даже если вы заказываете онлайн билет впервые.'
     },
     {
       userName: 'Евгений Стрыкало',
-      img: './img/usersPic/second-test-user-photo.png',
+      img: './img/second-test-user-photo.png',
       text: 'СМС-сопровождение до посадки Сразу после оплаты ж/д билетов и за 3 часа до отправления мы пришлем вам СМС-напоминание о поездке.'
     },
     {
       userName: 'Екатерина Вальнова-1',
-      img: './img/usersPic/first-test-user-photo.png',
+      img: './img/first-test-user-photo.png',
       text: 'Доброжелательные подсказки на всех этапах помогут правильно заполнить поля и без затруднений купить авиа или ж/д билет, даже если вы заказываете онлайн билет впервые.'
     },
     {
       userName: 'Евгений Стрыкало-1',
-      img: './img/usersPic/second-test-user-photo.png',
+      img: './img/second-test-user-photo.png',
       text: 'СМС-сопровождение до посадки Сразу после оплаты ж/д билетов и за 3 часа до отправления мы пришлем вам СМС-напоминание о поездке.'
     },
   ];

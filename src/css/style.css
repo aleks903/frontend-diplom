@@ -181,7 +181,7 @@
 
 .filter_departure-date,
 .filter_departure-date-back {
-  background-image: url(../img/icons/date-vector.png);
+  background-image: url(../img/date-vector.png);
   background-repeat: no-repeat;
   background-position-x: 255px;
   background-position-y: center;
@@ -209,37 +209,37 @@
 .coupe-vector {
   width: 17px;
   height: 17px;
-  background-image: url(../img/icons/icon_coupe.png);
+  background-image: url(../img/icon_coupe.png);
 }
 
 .platzKarte-vector {
   width: 17px;
   height: 17px;
-  background-image: url(../img/icons/icon_platzKarte.png);
+  background-image: url(../img/icon_platzKarte.png);
 }
 
 .seat-vector {
   width: 14px;
   height: 23px;
-  background-image: url(../img/icons/icon_seat.png);
+  background-image: url(../img/icon_seat.png);
 }
 
 .luxury-vector {
   width: 22px;
   height: 20px;
-  background-image: url(../img/icons/icon_luxury.png);
+  background-image: url(../img/icon_luxury.png);
 }
 
 .wifi-vector {
   width: 24px;
   height: 19px;
-  background-image: url(../img/icons/icon_wifi.png);
+  background-image: url(../img/icon_wifi.png);
 }
 
 .express-vector {
   width: 20px;
   height: 20px;
-  background-image: url(../img/icons/icon_express.png);
+  background-image: url(../img/icon_express.png);
 }
 
 .switch {
@@ -424,21 +424,21 @@ input:checked + .slider:before {
 .arrival-vector {
   width: 32px;
   height: 26px;
-  background-image: url(../img/icons/icon_back.png);
+  background-image: url(../img/icon_back.png);
   margin: 0 9px 0 0;
 }
 
 .departure-vector {
   width: 32px;
   height: 26px;
-  background-image: url(../img/icons/icon_there.png);
+  background-image: url(../img/icon_there.png);
   margin: 0 9px 0 0;
 }
 
 .closeUP-vector {
   width: 20px;
   height: 20px;
-  background: url(../img/icons/icon_minus.png);
+  background: url(../img/icon_minus.png);
 }
 
 /* overlooked-tickets */
@@ -516,7 +516,7 @@ input:checked + .slider:before {
   display: flex;
   width: 92px;
   height: 20px;
-  background-image: url(../img/icons/icons_comfort.png);
+  background-image: url(../img/icons_comfort.png);
 }
 
 .overlooked-ticket-price {
@@ -539,7 +539,7 @@ input:checked + .slider:before {
   width: 20px;
   height: 25px;
   margin-left: 5px;
-  background-image: url(../img/icons/big-rub-vector.png);
+  background-image: url(../img/big-rub-vector.png);
 }
 
 /* trains */
@@ -647,7 +647,7 @@ input:checked + .slider:before {
   display: flex;
   width: 86px;
   height: 86px;
-  background-image: url(../img/icons/icon_ticket_train.png);
+  background-image: url(../img/icon_ticket_train.png);
   margin: auto;
 }
 
@@ -687,7 +687,7 @@ input:checked + .slider:before {
   height: 8px;
   background-position: center;
   background-repeat: no-repeat;
-  background-image: url(../img/icons/icon_arrow_right_gray.png);
+  background-image: url(../img/icon_arrow_right_gray.png);
   margin-left: 5px;
 }
 
@@ -749,7 +749,7 @@ input:checked + .slider:before {
   display: flex;
   width: 30px;
   height: 20px;
-  background-image: url(../img/icons/icon_search_there.png);
+  background-image: url(../img/icon_search_there.png);
   margin-top: 5px;
 }
 
@@ -757,7 +757,7 @@ input:checked + .slider:before {
   display: flex;
   width: 30px;
   height: 20px;
-  background-image: url(../img/icons/icon_search_back.png);
+  background-image: url(../img/icon_search_back.png);
   margin-top: 5px;
 }
 
@@ -800,7 +800,7 @@ input:checked + .slider:before {
   width: 16px;
   height: 19px;
   background-size: cover;
-  background-image: url(../img/icons/icon_ruble_small.png);
+  background-image: url(../img/icon_ruble_small.png);
   margin-left: 5px;
 }
 
@@ -892,13 +892,13 @@ input:checked + .slider:before {
 }
 
 .angle-back {
-  background-image: url(../img/icons/pagination-angle-back.png);
+  background-image: url(../img/pagination-angle-back.png);
   background-repeat: no-repeat;
   background-position: center;
 }
 
 .angle-forward {
-  background: url(../img/icons/pagination-angle-forward.png);
+  background: url(../img/pagination-angle-forward.png);
   background-repeat: no-repeat;
   background-position: center;
   margin-left: 35px;
@@ -975,3 +975,27 @@ input:checked + .slider:before {
 .next-button_lock {
   background: #928F94;
 }
+
+.loading {
+  position: absolute;
+  top: 13px;
+  right: 13px;
+  background-image: url(../img/spinner.png);
+  width: 35px;
+  height: 35px;
+  animation: isloading 1s linear infinite;
+}
+
+@keyframes isloading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* dateInput */
+/* .react-datepicker-popper {
+
+} */
