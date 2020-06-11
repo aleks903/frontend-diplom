@@ -1,9 +1,18 @@
 import React, { useState } from 'react';
+import { useHistory } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import moment from 'moment';
+
 import DirectionSearch from '../elements/DirectionSearch';
 import DateInput from '../elements/DateInput';
 
+import { fetchDirectionChangeFiltr } from '../../actions/directionSearchAction';
+
 export default function FormHeader() {
+  const { filtr } = useSelector((state) => state.serchDirection);
+  const dispatch = useDispatch();
+  const history = useHistory();
+
   const [dataSearchTickets, setDataSearchTickets] = useState({
     fromCity: {},
     whereCity: {},
@@ -16,22 +25,15 @@ export default function FormHeader() {
   });
 
   const handleSelectFrom = (item) => {
-    console.log(item);
     setDataSearchTickets((prevState) => ({...prevState, fromCity: item}));
   }
 
   const handleSelectWhere = (item) => {
-    // console.log(item);
     setDataSearchTickets((prevState) => ({...prevState, whereCity: item}));
   }
 
   const handleFromDate = (item) => {
-
-    console.log(item);
-    console.log(dataSearchTickets.whereDate);
-    console.log(moment(item).isAfter(dataSearchTickets.whereDate));
-    
-    if (moment(item).isBefore(dataSearchTickets.whereDate)) {
+    if (moment(item).isAfter(moment(dataSearchTickets.whereDate))) {
       setDataSearchTickets((prevState) => ({...prevState, fromDate: item, whereDate: item}));
     } else {
       setDataSearchTickets((prevState) => ({...prevState, fromDate: item}));
@@ -58,10 +60,21 @@ export default function FormHeader() {
     }));
   };
 
-  console.log(dataSearchTickets);
+  const handleSearch = (event) => {
+    event.preventDefault();
+    dispatch(fetchDirectionChangeFiltr(dataSearchTickets));
+    
+    history.push('/order');
+    // fetch( `https://netology-trainbooking.herokuapp.com/routes?from_city_id=${dataSearchTickets.fromCity.id}&to_city_id=${dataSearchTickets.whereCity.id}` )
+    // .then( response => response.json()
+    //     .then( data => { console.log( 'routes',  data ) })
+    // );
+  }
+
+  // console.log(filtr);
 
   return (
-    <form className="header-content_search-form">
+    <form className="header-content_search-form" onSubmit={handleSearch}>
     <div className="block-input">
       <div className="direction-form">
         <p className="form_title">Направление</p>

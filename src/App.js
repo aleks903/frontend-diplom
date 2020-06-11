@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
+import { HashRouter as Router, Route, Switch } from 'react-router-dom';
 // import Header from './components/Header';
 // import Banner from './components/Banner';
 // import Footer from './components/Footer';
@@ -10,7 +10,8 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 // import Page404 from './components/Page404';
 // import PageProduct from './components/PageProduct';
 // import PageCart from './components/PageCart';
-import MainPage from './components/PageMain/MainPage';
+import MainPage from './components/pageMain/MainPage';
+import OrderPage from './components/pageOrder/OrderPage';
 
 // eslint-disable-next-line
 // import regeneratorRuntime from 'regenerator-runtime';
@@ -23,7 +24,10 @@ export default function App() {
   return (
     <React.Fragment>
       <Router>
-        <MainPage />
+        <Switch>
+          <Route exact path='/' component={MainPage} />
+          <Route exact path='/order' component={OrderPage} />
+        </Switch>
       </Router>
 
       {/* <AboutUs /> */}

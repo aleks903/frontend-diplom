@@ -1,9 +1,17 @@
 import {
+  FETCH_DIRECTION_CHANGE_FILTR,
   FETCH_DIRECTION_SEARCH_REQUEST,
   FETCH_DIRECTION_SEARCH_FAILURE,
   FETCH_DIRECTION_SEARCH_SUCCESS,
   FETCH_DIRECTION_SEARCH_CLEAR,
 } from '../types/directionSearchTypes';
+
+export function fetchDirectionChangeFiltr(valueFiltr) {
+  return {
+    type: FETCH_DIRECTION_CHANGE_FILTR,
+    payload: { valueFiltr },
+  };
+}
 
 export function fetchDirectionSearchRequest(valueSerch) {
   return { 
