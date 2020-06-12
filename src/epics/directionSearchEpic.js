@@ -10,22 +10,43 @@ import {
   switchMap,
   catchError,
 } from 'rxjs/operators';
-import { FETCH_DIRECTION_SEARCH_REQUEST } from '../types/directionSearchTypes';
+import queryString from 'query-string';
 import {
+  FETCH_DIRECTION_SEARCH_REQUEST,
+  FETCH_DIRECTION_ROUTES_REQUEST,
+  FETCH_DIRECTION_CHANGE_FILTR,
+} from '../types/directionSearchTypes';
+import {
+  fetchDirectionRoutesSuccess,
   fetchDirectionSearchSuccess, fetchDirectionSearchFailure,
 } from '../actions/directionSearchAction';
 
+import changeFiltrStorage from '../utils/filtr-storage';
+
+import store from '../store';
+
 export const directionSearchEpic = (action$) => action$.pipe(
-  ofType(FETCH_DIRECTION_SEARCH_REQUEST),
-  map((o) => o.payload.valueSerch.trim()),
-  // filter(o => o !== ''),
-  debounceTime(500),
-  map((o) => new URLSearchParams({ name: o})),
-  switchMap((o) => ajax.getJSON(`${process.env.REACT_APP_URL}routes/cities?${o}`).
+  ofType(FETCH_DIRECTION_ROUTES_REQUEST),
+  map(() => {
+    const queryUrl = queryString.stringify({
+      ...store.getState().serchDirection.filtr
+    }, {
+      skipEmptyString: true
+    });
+    return `${queryUrl}`;
+  }),
+  tap((o) => console.log(o)),
+  switchMap((query) => ajax.getJSON(`${process.env.REACT_APP_URL}routes?${query}`).
   pipe(
     retry(3),
-    // tap(o => console.log(o)),
-    map((items) => fetchDirectionSearchSuccess(items)),
+    map((items) => fetchDirectionRoutesSuccess(items)),
     catchError(e => of(fetchDirectionSearchFailure(e))),
   )),
+);
+
+export const directionFiltrChangeEpic = (action$) => action$.pipe(
+  ofType(FETCH_DIRECTION_CHANGE_FILTR),
+  // tap(() => console.log(store.getState().serchDirection.filtr)),
+  map(() => changeFiltrStorage(store.getState().serchDirection.filtr)),
+  map(() => fetchDirectionRoutesSuccess({test: '123'})),
 );

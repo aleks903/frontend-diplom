@@ -62,7 +62,12 @@ export default function FormHeader() {
 
   const handleSearch = (event) => {
     event.preventDefault();
-    dispatch(fetchDirectionChangeFiltr(dataSearchTickets));
+    dispatch(fetchDirectionChangeFiltr({
+      from_city_id: dataSearchTickets.fromCity.id,
+      to_city_id: dataSearchTickets.whereCity.id,
+      date_start: dataSearchTickets.fromDate,
+      date_end: dataSearchTickets.whereDate,
+    }));
     
     history.push('/order');
     // fetch( `https://netology-trainbooking.herokuapp.com/routes?from_city_id=${dataSearchTickets.fromCity.id}&to_city_id=${dataSearchTickets.whereCity.id}` )
@@ -101,13 +106,13 @@ export default function FormHeader() {
         <p className="form_title">Дата</p>
         <div className="element-inputs">
           <DateInput
-            classElement='departure-date'
+            classElement='search-form_input departure-date'
             selectDate={handleFromDate}
             initDate={dataSearchTickets.fromDate}
           />
           {/* <input type="text" className="search-form_input departure-date" placeholder="ДД/ММ/ГГ" /> */}
           <DateInput
-            classElement='departure-date-back'
+            classElement='search-form_input departure-date-back'
             selectDate={handleWhereDate}
             initDate={dataSearchTickets.whereDate}
             minValueDate={dataSearchTickets.fromDate}

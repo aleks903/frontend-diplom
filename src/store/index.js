@@ -6,7 +6,7 @@ import {
 } from 'redux';
 import { combineEpics, createEpicMiddleware } from 'redux-observable';
 // epics
-import { directionSearchEpic } from '../epics/directionSearchEpic';
+import { directionSearchEpic, directionFiltrChangeEpic } from '../epics/directionSearchEpic';
 // old
 import { topSalesEpics } from '../epics/topSalesEpics';
 import {
@@ -38,6 +38,7 @@ const reducer = combineReducers({
 
 const epic = combineEpics(
   directionSearchEpic,
+  directionFiltrChangeEpic,
   // old
   topSalesEpics,
   fetchCatalogCategoriesEpics,

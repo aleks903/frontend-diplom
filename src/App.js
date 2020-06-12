@@ -15,9 +15,11 @@ import OrderPage from './components/pageOrder/OrderPage';
 
 // eslint-disable-next-line
 // import regeneratorRuntime from 'regenerator-runtime';
+
+import 'react-input-range/lib/css/index.css';
 import './css/MainPage.css';
 import './css/style.css';
-import './App.css';
+// import './App.css';
 require.context('./img');
 
 export default function App() {

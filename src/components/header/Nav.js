@@ -15,7 +15,7 @@ export default function Header() {
             <Link to="/#about-us">О нас</Link>
           </li>
           <li className="top-menu_nav-item">
-            <Link to="/#how-it-works" onClick={onLinkClick}>Как это работает</Link>
+            <Link to="/#how-its-work" onClick={onLinkClick}>Как это работает</Link>
           </li>
           <li className="top-menu_nav-item">
             <Link to="/#reviews" onClick={onLinkClick}>Отзывы</Link>

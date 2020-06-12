@@ -170,6 +170,8 @@
 
 .date-filter_departure, .date-filter_departure-back {
   width: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 .date-filter_input {
@@ -305,7 +307,11 @@ input:checked + .slider:before {
 /* price-filter */
 .price-filter, .departure_time-filters_container, .departure-back_time-filters_container {
   border-bottom: 1px solid #ffffff;
-  padding: 30px 35px 35px 25px;
+  padding: 30px 35px 50px 25px;
+}
+
+.departure-time {
+  margin-bottom: 70px;
 }
 
 .start-cost-title {
@@ -333,8 +339,8 @@ input:checked + .slider:before {
   border-radius: 50%;
   background: #ffffff;
   z-index: 5;
-  top: 4px;
-  left: 0px;
+  top: -3px;
+  left: -12px;
 }
 
 .line-gray,
@@ -352,8 +358,8 @@ input:checked + .slider:before {
 .line-colored,
 .timeline-colored {
   position: absolute;
-  top: 6px;
-  height: 19px;
+  /* top: 6px; */
+  height: 100%;
   background: #ffa800;
 }
 
@@ -366,15 +372,23 @@ input:checked + .slider:before {
 .start-cost,
 .limit-cost,
 .max-cost {
-  position: relative;
+  /* position: relative;
   width: 44px;
-  height: 23px;
+  height: 23px; */
   font-size: 16px;
   color: #e5e5e5;
 }
 
+.limit-cost span {
+  position: absolute;
+  top: 25px;
+  left: -10px;
+}
+
 .max-cost {
-  left: 171px;
+  position: absolute;
+  right: 0;
+  top: 30px;
 }
 
 .time-filter_title-container {
@@ -406,8 +420,8 @@ input:checked + .slider:before {
   background: #ffffff;
   z-index: 5;
 
-  top: 2px;
-  left: 0px;
+  top: -4px;
+  left: -9px;
 }
 
 .timeline-gray {
@@ -417,8 +431,8 @@ input:checked + .slider:before {
 }
 
 .timeline-colored {
-  top: 6px;
-  height: 10px;
+  /* top: 6px;
+  height: 10px; */
 }
 
 .arrival-vector {
@@ -435,10 +449,17 @@ input:checked + .slider:before {
   margin: 0 9px 0 0;
 }
 
-.closeUP-vector {
+.closeUp-vector, .closeDown-vector {
   width: 20px;
   height: 20px;
+}
+
+.closeUp-vector {
   background: url(../img/icon_minus.png);
+}
+
+.closeDown-vector {
+  background: url(../img/icon_plus.png);
 }
 
 /* overlooked-tickets */

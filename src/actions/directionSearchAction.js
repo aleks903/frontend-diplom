@@ -1,5 +1,7 @@
 import {
   FETCH_DIRECTION_CHANGE_FILTR,
+  FETCH_DIRECTION_ROUTES_REQUEST,
+  FETCH_DIRECTION_ROUTES_SUCCESS,
   FETCH_DIRECTION_SEARCH_REQUEST,
   FETCH_DIRECTION_SEARCH_FAILURE,
   FETCH_DIRECTION_SEARCH_SUCCESS,
@@ -7,11 +9,26 @@ import {
 } from '../types/directionSearchTypes';
 
 export function fetchDirectionChangeFiltr(valueFiltr) {
+  console.log('reg');
   return {
     type: FETCH_DIRECTION_CHANGE_FILTR,
     payload: { valueFiltr },
   };
 }
+
+export function fetchDirectionRoutesRequest() {
+  return { 
+    type: FETCH_DIRECTION_ROUTES_REQUEST,
+  };
+}
+
+export function fetchDirectionRoutesSuccess(listRoutes) {
+  return {
+    type: FETCH_DIRECTION_ROUTES_SUCCESS,
+    payload: { listRoutes },
+  };
+}
+
 
 export function fetchDirectionSearchRequest(valueSerch) {
   return { 

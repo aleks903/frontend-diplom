@@ -13,7 +13,11 @@ export default function DateInput(props) {
     // let paramsName = this.props.name === 'fromDate' ? 'date_start' : 'date_end';
     // this.props.setDate(date, paramsName)
     setSelectedDate(date);
-    selectDate(moment(date).format('YYYY-DD-MM'));
+    if (date) {
+      selectDate(moment(date).format('YYYY-DD-MM'));
+    } else {
+      selectDate(null);
+    }
     // console.log(moment(date).format('YYYY-DD-MM'));
   }
 
@@ -29,7 +33,7 @@ export default function DateInput(props) {
           dateFormat="dd.MM.yyyy"
           locale={ru}
           placeholderText="ДД/ММ/ГГ"
-          className={`search-form_input ${classElement}`}
+          className={classElement}
           selected={selectedDate}
           onChange={date => onDateChange(date)}
           value={selectedDate}
