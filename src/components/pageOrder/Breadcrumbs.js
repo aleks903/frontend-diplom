@@ -14,7 +14,7 @@ export default function Breadcrumbs(props) {
       <div className="breadcrumbs-before"></div>
       <ul className="breadcrumbs-list container">
         {steps.map((item, index) => (
-          <li className={`breadcrumb ${index <= Number(step) ? 'breadcrumb-active' : ''}`}>
+          <li className={`breadcrumb ${index <= Number(step) ? 'breadcrumb-active' : ''}`} key={index}>
             <span className="icon">{index + 1}</span>{item}
           </li>
         ))}

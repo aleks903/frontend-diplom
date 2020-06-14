@@ -13,7 +13,8 @@ import Breadcrumbs from '../pageOrder/Breadcrumbs';
 import { getLastFiltr } from '../../utils/filtr-storage';
 
 //aside
-import Filter from './sidebar/Filter';
+import SidebarFilter from './sidebar/SidebarFilter';
+import MainRoutes from './main/MainRoutes';
 
 export default function OrderPage() {
   const { filtr, routes, loading, error } = useSelector((state) => state.serchDirection);
@@ -22,15 +23,16 @@ export default function OrderPage() {
   const history = useHistory();
 
   useEffect(() => {
+    // console.log('iz local');
     // console.log(routes);
     // console.log(filtr);
     if (getLastFiltr()) {
       dispatch(fetchDirectionChangeFiltr(getLastFiltr()));
     }
-    dispatch(fetchDirectionRoutesRequest());
+    // dispatch(fetchDirectionRoutesRequest());
   }, [])
 
-console.log(routes);
+// console.log(routes);
 // console.log(filtr);
 
   return (
@@ -41,12 +43,12 @@ console.log(routes);
         <div className="container">
           <section className="sidebar-content">
           <Switch>
-            <Route exact path='/order' component={Filter} />
+            <Route exact path='/order' component={SidebarFilter} />
           </Switch>
           </section>
-          {/* <Switch>
-            <Route exact path='/order' component={Filter} />
-          </Switch> */}
+          <Switch>
+            <Route exact path='/order' component={MainRoutes} />
+          </Switch>
         </div>
       </main>
 

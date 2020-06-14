@@ -14,9 +14,9 @@ import MainPage from './components/pageMain/MainPage';
 import OrderPage from './components/pageOrder/OrderPage';
 
 // eslint-disable-next-line
-// import regeneratorRuntime from 'regenerator-runtime';
+import regeneratorRuntime from 'regenerator-runtime';
 
-import 'react-input-range/lib/css/index.css';
+// import 'react-input-range/lib/css/index.css';
 import './css/MainPage.css';
 import './css/style.css';
 // import './App.css';

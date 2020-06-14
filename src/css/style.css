@@ -500,6 +500,7 @@ input:checked + .slider:before {
 .point-name {
   font-size: 20px;
   color: #292929;
+  text-transform: capitalize;
 }
 
 .point-station {
@@ -533,11 +534,30 @@ input:checked + .slider:before {
   margin-top: 40px;
 }
 
+.train-comfort-props {
+  display: flex;
+}
+
 .comfort-props_vector {
   display: flex;
-  width: 92px;
+  width: 20px;
   height: 20px;
-  background-image: url(../img/icons_comfort.png);
+  background-position: center;
+  background-repeat: no-repeat;
+  margin-right: 5px;
+  
+}
+
+.icon-condition {
+  background-image: url(../img/conditioner-include.png);
+}
+
+.icon-wifi {
+  background-image: url(../img/wi-fi-include.png);
+}
+
+.icon-express {
+  background-image: url(../img/express_include.png);
 }
 
 .overlooked-ticket-price {
@@ -595,6 +615,7 @@ input:checked + .slider:before {
   position: relative;
   width: 140px;
   margin-left: 15px;
+  cursor: pointer;
 }
 
 .sorting-list {
@@ -631,7 +652,7 @@ input:checked + .slider:before {
   color: #292929;
 }
 
-.show-by-list li:active {
+.show-by-list li.active {
   color: #ffa800;
 }
 
@@ -956,7 +977,7 @@ input:checked + .slider:before {
   font-size: 30px;
   text-align: center;
   line-height: 70px;
-  color: #928f94;
+  color: #ffffff;
   border: 2px solid #c4c4c4;
   box-sizing: border-box;
   margin-left: 35px;

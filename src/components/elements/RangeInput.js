@@ -1,10 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 import InputRange from 'react-input-range';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { fetchDirectionChangeFiltr } from '../../actions/directionSearchAction';
-
-// import 'react-input-range/lib/css/index.css';
 
 export default function RangeInput(props) {
   const { filtr } = useSelector((state) => state.serchDirection);
@@ -19,35 +17,13 @@ export default function RangeInput(props) {
     classEl,
     paramsName,
   } = props;
-  
-  const [valueMinMax, setValueMinMax] = useState({
-    min: startMin,
-    max: startMax,
-  });
 
   const onRangeChange = (value) => {
-    console.log(value);
-    setValueMinMax(value);
-
     dispatch(fetchDirectionChangeFiltr({
       [paramsName.forMinValue]: value.min,
       [paramsName.forMaxValue]: value.max,
     }));
   }
-console.log(classEl);
-// const classEl = {
-//   activeTrack: 'line-colored',
-//   // disabledInputRange: string,
-//   // inputRange: 'circle-container',
-//   // labelContainer: 'max-cost',
-//   maxLabel: 'max-cost',
-//   minLabel: 'hiden-block',
-//   slider: 'circle-1',
-//   // sliderContainer: 'line-gray',
-//   track: 'line-gray',
-//   valueLabel: 'limit-cost',
-// }
-
 
   return (
     <InputRange
@@ -56,7 +32,10 @@ console.log(classEl);
     minValue={min}
     maxValue={max}
     step={step}
-    value={valueMinMax}
+    value={{
+        min: filtr[paramsName.forMinValue] || startMin,
+        max: filtr[paramsName.forMaxValue] || startMax,
+    }}
     onChange={value => onRangeChange(value)} />
   );
 }

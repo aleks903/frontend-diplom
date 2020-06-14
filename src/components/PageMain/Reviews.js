@@ -47,10 +47,10 @@ export default function Reviews() {
           </ul>
           
           <ul className="reviews_slider_pagination-list">
-            {[...Array(reviewsUser.length / 2)].map((i, index) => (
+            {[...Array(Math.ceil(reviewsUser.length / 2))].map((i, index) => (
               <li className={numbList === index ?
                 "reviews_slider_pagination-item-active reviews_slider_pagination-item" :
-                "reviews_slider_pagination-item"} onClick={()=>handleChange(index)}></li>
+                "reviews_slider_pagination-item"} onClick={()=>handleChange(index)} key={index}></li>
             ))}
           </ul>
         </div>
