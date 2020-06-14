@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 
 import { fetchDirectionChangeFiltr } from '../../../actions/directionSearchAction';
@@ -8,7 +8,7 @@ export default function RoutesHead() {
   const dispatch = useDispatch();
   const [titleSortBy, setTitleSortBy] = useState('времени');
   const [hideBlock, setHideBlock] = useState(true);
-  const [showBy, setShowBy] = useState(filtr.limit);
+  const [showBy, setShowBy] = useState();
 
   const { total_count } = routes;
   const arrSortBy = [
@@ -18,6 +18,10 @@ export default function RoutesHead() {
   ];
 
   const arrShowBy = [5, 10, 20];
+
+  useEffect(() => {
+    setShowBy(filtr.limit);
+  }, [filtr])
 
   const clickSortBy = () => {
     console.log('clickkk');
