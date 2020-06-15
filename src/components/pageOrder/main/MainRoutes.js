@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import { useSelector, useDispatch } from 'react-redux';
+import { useHistory } from 'react-router-dom';
+import { HashLink as Link } from 'react-router-hash-link';
 import moment from 'moment';
 
 import { fetchDirectionChangeFiltr } from '../../../actions/directionSearchAction';
@@ -11,6 +13,7 @@ import Loading from '../../elements/Loading';
 export default function MainRoutes() {
   const { filtr, routes, loading, error } = useSelector((state) => state.serchDirection);
   const { items } = routes;
+  const history = useHistory();
 
   const classes = [
     {traiClass: 'first', nameClass: 'Люкс'},
@@ -19,6 +22,12 @@ export default function MainRoutes() {
     {traiClass: 'fourth', nameClass: 'Сидячий'},
   ];
   console.log(items);
+
+  const handleSeats = (itemTrain) => {
+    
+    history.push(`order/${itemTrain.departure._id}`);
+    // history.push(`order/cr`);
+  }
 
   return (
     <section className="trains main-block">
@@ -38,7 +47,9 @@ export default function MainRoutes() {
                         <li>
                         {item.departure.from.city.name}
                         <span className="arrow-vector"></span></li>
-                        <li>{item.departure.to.city.name}<span className="arrow-vector"></span></li>
+                        <li>{item.departure.to.city.name}
+                        {/* <span className="arrow-vector"></span> */}
+                        </li>
                         {/* <li>Санкт-Петербург «Волга»</li> */}
                       </ul>
                     </div>
@@ -115,7 +126,7 @@ export default function MainRoutes() {
                       {item.departure.have_wifi && <span className="comfort-props_vector icon-wifi"></span>}
                       {item.departure.is_express && <span className="comfort-props_vector icon-express"></span>}
                       {item.departure.have_air_conditioning && <span className="comfort-props_vector icon-condition"></span>}</div>
-                    <button className="select-seats">Выбрать места</button>
+                    <button className="select-seats" onClick={()=>handleSeats(item)}>Выбрать места</button>
                   </div>
       
                 </li>

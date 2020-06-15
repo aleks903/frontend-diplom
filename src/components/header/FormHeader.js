@@ -6,7 +6,7 @@ import moment from 'moment';
 import DirectionSearch from '../elements/DirectionSearch';
 import DateInput from '../elements/DateInput';
 
-import { fetchDirectionChangeFiltr } from '../../actions/directionSearchAction';
+import { fetchDirectionChangeFiltr, fetchDirectionSearchClear } from '../../actions/directionSearchAction';
 
 export default function FormHeader() {
   const { filtr } = useSelector((state) => state.serchDirection);
@@ -62,6 +62,7 @@ export default function FormHeader() {
 
   const handleSearch = (event) => {
     event.preventDefault();
+    dispatch(fetchDirectionSearchClear());
     dispatch(fetchDirectionChangeFiltr({
       from_city_id: dataSearchTickets.fromCity.id,
       to_city_id: dataSearchTickets.whereCity.id,

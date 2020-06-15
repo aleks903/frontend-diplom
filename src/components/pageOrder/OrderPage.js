@@ -15,6 +15,7 @@ import { getLastFiltr } from '../../utils/filtr-storage';
 //aside
 import SidebarFilter from './sidebar/SidebarFilter';
 import MainRoutes from './main/MainRoutes';
+import MainSeats from './main/MainSeats';
 
 export default function OrderPage() {
   const { filtr, routes, loading, error } = useSelector((state) => state.serchDirection);
@@ -43,19 +44,18 @@ export default function OrderPage() {
         <div className="container">
           <section className="sidebar-content">
           <Switch>
-            <Route exact path='/order' component={SidebarFilter} />
+            <Route exact path={`/order/:id`} component={SidebarFilter} />
+            <Route exact path={`/order`} component={SidebarFilter} />
           </Switch>
           </section>
           <Switch>
-            <Route exact path='/order' component={MainRoutes} />
+            <Route exact path={`/order/:id`} component={MainSeats} />
+            <Route exact path={`/order`} component={MainRoutes} />
           </Switch>
         </div>
       </main>
 
       {loading && <Loading />}
-      {!loading &&
-        <div>OrderPage</div>
-      }
       <Footer />
     </React.Fragment>
   );

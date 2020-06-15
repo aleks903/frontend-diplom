@@ -28,7 +28,8 @@ export default function App() {
       <Router>
         <Switch>
           <Route exact path='/' component={MainPage} />
-          <Route exact path='/order' component={OrderPage} />
+          <Route path='/order' component={OrderPage} />
+          {/* <Route exact path='/order/:id' component={OrderPage} /> */}
         </Switch>
       </Router>
 
