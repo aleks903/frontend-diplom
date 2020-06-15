@@ -12,14 +12,13 @@ import {
 } from 'rxjs/operators';
 import queryString from 'query-string';
 import {
-  FETCH_DIRECTION_SEARCH_REQUEST,
   FETCH_DIRECTION_ROUTES_REQUEST,
   FETCH_DIRECTION_CHANGE_FILTR,
 } from '../types/directionSearchTypes';
 import {
   fetchDirectionRoutesRequest,
   fetchDirectionRoutesSuccess,
-  fetchDirectionSearchSuccess, fetchDirectionSearchFailure,
+  fetchDirectionSearchFailure,
 } from '../actions/directionSearchAction';
 
 import changeFiltrStorage from '../utils/filtr-storage';
@@ -48,7 +47,7 @@ export const directionSearchEpic = (action$) => action$.pipe(
 export const directionFiltrChangeEpic = (action$) => action$.pipe(
   ofType(FETCH_DIRECTION_CHANGE_FILTR),
   // tap(() => console.log(store.getState().serchDirection.filtr)),
-  map(() => changeFiltrStorage(store.getState().serchDirection.filtr)),
+  map(() => changeFiltrStorage({field: 'filter', value: store.getState().serchDirection.filtr})),
   map(() => fetchDirectionRoutesRequest()),
   // fetchDirectionRoutesRequest
 );

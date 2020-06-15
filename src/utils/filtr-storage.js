@@ -1,6 +1,9 @@
-export default function changeFiltrStorage(filtr) {
-  console.log(filtr);
-  sessionStorage.setItem('routesFilrt', JSON.stringify(filtr));
+export default function changeFiltrStorage(data) {
+  console.log(data);
+  const {field, value} = data;
+  const change = {...getLastFiltr(), [field]: value}
+
+  sessionStorage.setItem('routesFilrt', JSON.stringify(change));
 }
 
 export function getLastFiltr() {

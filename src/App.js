@@ -17,6 +17,7 @@ import OrderPage from './components/pageOrder/OrderPage';
 import regeneratorRuntime from 'regenerator-runtime';
 
 // import 'react-input-range/lib/css/index.css';
+import './css/SeatSelect.css';
 import './css/MainPage.css';
 import './css/style.css';
 // import './App.css';

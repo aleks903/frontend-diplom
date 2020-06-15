@@ -5,6 +5,7 @@ import { HashLink as Link } from 'react-router-hash-link';
 import moment from 'moment';
 
 import { fetchDirectionChangeFiltr } from '../../../actions/directionSearchAction';
+import { fetchSelectRoute } from '../../../actions/selectRouteSeatsAcions';
 
 import RoutesHead from './RoutesHead';
 import RoutesFooter from './RoutesFooter';
@@ -12,6 +13,7 @@ import Loading from '../../elements/Loading';
 
 export default function MainRoutes() {
   const { filtr, routes, loading, error } = useSelector((state) => state.serchDirection);
+  const dispatch = useDispatch();
   const { items } = routes;
   const history = useHistory();
 
@@ -24,7 +26,7 @@ export default function MainRoutes() {
   console.log(items);
 
   const handleSeats = (itemTrain) => {
-    
+    dispatch(fetchSelectRoute(itemTrain));
     history.push(`order/${itemTrain.departure._id}`);
     // history.push(`order/cr`);
   }

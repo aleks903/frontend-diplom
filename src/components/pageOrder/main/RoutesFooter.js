@@ -9,7 +9,8 @@ export default function RoutesFooter() {
   const { total_count } = routes;
   const { limit, offset } = filtr;
 
-  const [activePage, setActivePage] = useState();
+  const [activePage, setActivePage] = useState(0);
+  const [arrayPages, setArrayPages] = useState();
   const amountPage = Math.ceil(total_count / limit);
 
   useEffect(() => {
@@ -33,6 +34,26 @@ export default function RoutesFooter() {
     };
   }
 
+  useEffect(() => {
+      const sheetsABItem = 2;
+      const arrNumbPage = [
+        {index: 0, title: 1},
+      ];
+      for (let itemNum = activePage - sheetsABItem; itemNum <= activePage + sheetsABItem; itemNum += 1 ) {
+        if (itemNum <= 0 || itemNum >= amountPage - 1) {
+          continue;
+        } else if (itemNum === activePage - sheetsABItem || itemNum === activePage + sheetsABItem) {
+          arrNumbPage.push({index: itemNum, title: '...'});
+          continue;
+        } else {
+          arrNumbPage.push({index: itemNum, title: itemNum + 1});
+        } 
+      }
+      arrNumbPage.push({index: amountPage - 1, title: amountPage});
+
+      setArrayPages(arrNumbPage);
+  }, [activePage])
+
   const selectPage = (index) => {
     console.log(index);
     setActivePage(index);
@@ -46,13 +67,13 @@ export default function RoutesFooter() {
       {(amountPage > 1 ) && <section className="pagination-container">
         <button className="angle-back" onClick={()=>changeNumPage(-1)}></button>
         <ul className='pagination-list'>
-          {[...Array(amountPage)].map((i, index) => (
+        {arrayPages && arrayPages.map((item) => (
             <li
-              className={index === activePage ? 'active-page' : 'page'}
-              key={index}
-              onClick={()=>selectNumPage(index)}
+              className={item.index === activePage ? 'active-page' : 'page'}
+              key={item.index}
+              onClick={()=>selectNumPage(item.index)}
             >
-                {index + 1}
+                {item.title}
               </li>
           ))}
         </ul>

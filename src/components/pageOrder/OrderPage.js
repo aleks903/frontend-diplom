@@ -27,8 +27,8 @@ export default function OrderPage() {
     // console.log('iz local');
     // console.log(routes);
     // console.log(filtr);
-    if (getLastFiltr()) {
-      dispatch(fetchDirectionChangeFiltr(getLastFiltr()));
+    if (getLastFiltr().filter) {
+      dispatch(fetchDirectionChangeFiltr(getLastFiltr().filter));
     }
     // dispatch(fetchDirectionRoutesRequest());
   }, [])

@@ -654,6 +654,7 @@ input:checked + .slider:before {
 
 .show-by-list li.active {
   color: #ffa800;
+  background-color: inherit;
 }
 
 .train {
@@ -937,6 +938,7 @@ input:checked + .slider:before {
   background-image: url(../img/pagination-angle-back.png);
   background-repeat: no-repeat;
   background-position: center;
+  cursor: pointer;
 }
 
 .angle-forward {
@@ -963,6 +965,7 @@ input:checked + .slider:before {
   border-radius: 5px;
   background-color: transparent;
   margin-left: 35px;
+  cursor: pointer;
 }
 
 .page:hover {
