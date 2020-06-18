@@ -27,19 +27,20 @@ export const selectRouteSeatsEpic = (action$) => action$.pipe(
   map((o) => o.payload.id),
   map((id) => {
     const {
-      have_first_class,
-      have_second_class,
-      have_third_class,
-      have_fourth_class,
+      // have_first_class,
+      // have_second_class,
+      // have_third_class,
+      // have_fourth_class,
       have_wifi,
       have_air_conditioning,
       have_express,
     } = store.getState().serchDirection.filtr;
     const queryUrl = queryString.stringify({
-      have_first_class,
-      have_second_class,
-      have_third_class,
-      have_fourth_class,
+      id,
+      // have_first_class,
+      // have_second_class,
+      // have_third_class,
+      // have_fourth_class,
       have_wifi,
       have_air_conditioning,
       have_express,
@@ -60,7 +61,8 @@ export const selectRouteSeatsEpic = (action$) => action$.pipe(
 // export const directionFiltrChangeEpic = (action$) => action$.pipe(
 //   ofType(FETCH_DIRECTION_CHANGE_FILTR),
 //   // tap(() => console.log(store.getState().serchDirection.filtr)),
-//   map(() => changeFiltrStorage(store.getState().serchDirection.filtr)),
+// map(() => changeFiltrStorage({field: 'filter', value: store.getState().serchDirection.filtr})),
 //   map(() => fetchDirectionRoutesRequest()),
 //   // fetchDirectionRoutesRequest
 // );
+

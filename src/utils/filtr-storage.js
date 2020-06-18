@@ -9,3 +9,7 @@ export default function changeFiltrStorage(data) {
 export function getLastFiltr() {
   return JSON.parse(sessionStorage.getItem('routesFilrt'));
 }
+
+export function cleareStorage() {
+  sessionStorage.removeItem('routesFilrt');
+}

@@ -6,6 +6,7 @@ import moment from 'moment';
 
 import { fetchDirectionChangeFiltr } from '../../../actions/directionSearchAction';
 import { fetchSelectRoute } from '../../../actions/selectRouteSeatsAcions';
+import changeFiltrStorage from '../../../utils/filtr-storage'
 
 import RoutesHead from './RoutesHead';
 import RoutesFooter from './RoutesFooter';
@@ -26,6 +27,7 @@ export default function MainRoutes() {
   console.log(items);
 
   const handleSeats = (itemTrain) => {
+    changeFiltrStorage({ field: 'order', value: { route: itemTrain }});
     dispatch(fetchSelectRoute(itemTrain));
     history.push(`order/${itemTrain.departure._id}`);
     // history.push(`order/cr`);

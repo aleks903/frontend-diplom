@@ -3,6 +3,7 @@ import {
   FETCH_SEATS_REQUEST,
   FETCH_SEATS_SUCCESS,
   FETCH_SEATS_FAILURE,
+  FETCH_STORAGE_INIT_ORDER
 } from '../types/selectRouteSeatsTypes'
 
 const initialState = {
@@ -34,7 +35,10 @@ export default function selectRouteSeatsReducer(state = initialState, action) {
 
     case FETCH_SEATS_FAILURE:
       const { error } = action.payload;
-      return { ...state, loading: false, error }
+      return { ...state, loading: false, error };
+    case FETCH_STORAGE_INIT_ORDER:
+      return { ...state, ...action.payload };
+      
     default:
       return { ...state };
   }
