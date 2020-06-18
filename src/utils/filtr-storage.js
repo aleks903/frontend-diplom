@@ -1,5 +1,5 @@
 export default function changeFiltrStorage(data) {
-  console.log(data);
+  // console.log(data);
   const {field, value} = data;
   const change = {...getLastFiltr(), [field]: value}
 

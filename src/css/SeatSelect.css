@@ -186,6 +186,7 @@
 }
 
 .count-screen {
+  position: relative;
   width: 240px;
   height: 50px;
   background: #FFFFFF;
@@ -195,6 +196,36 @@
   padding-left: 15px;
   padding-top: 13px;
   margin-bottom: 25px;
+}
+
+.count-screen p {
+  cursor: pointer;
+}
+
+.count-screen ul {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  /* margin: 0 15px; */
+  border: 1px solid;
+  border-radius: 5px;
+  background-color: #ffffff;
+  width: 100%;
+}
+
+
+.count-screen ul li {
+  padding: 10px 15px;
+  border-bottom: 1px solid #928F94;
+  cursor: pointer;
+}
+
+.count-screen ul li:hover {
+  color: #FDB935;
+}
+
+.count-screen ul li:last-child {
+  border-bottom: none;
 }
 
 .seat-description {
