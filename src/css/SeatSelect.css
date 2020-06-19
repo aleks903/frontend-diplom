@@ -213,7 +213,6 @@
   width: 100%;
 }
 
-
 .count-screen ul li {
   padding: 10px 15px;
   border-bottom: 1px solid #928F94;
@@ -252,6 +251,7 @@
   align-items: center;
   font-size: 24px;
   color: #928F94;
+  cursor: pointer;
 }
 
 .wagon-type:hover {
@@ -259,54 +259,57 @@
 }
 
 .wagon-type_vector, .wagon-type_vector-active{
-display: flex;
+  display: flex;
+  width: 55px;
+  height: 55px;
+  background-position: center;
+  background-repeat: no-repeat;
 }
 
-.seat .wagon-type_vector {
-  width: 31px;
-  height: 50px;
+.fourth .wagon-type_vector {
+
   background-image: url(../img/icon_type_vagon_seat.png);
 }
 
-.platzKarte .wagon-type_vector {
-  width: 50px;
-  height: 50px;
+.third .wagon-type_vector {
+  /* width: 50px;
+  height: 50px; */
   background-image: url(../img/icon_type_vagon_reserved_seat.png);
 }
 
-.coupe .wagon-type_vector {
-  width: 50px;
-  height: 50px;
+.second .wagon-type_vector {
+  /* width: 50px;
+  height: 50px; */
   background-image: url(../img/icon_type_vagon_coupe.png);
 }
 
-.luxury .wagon-type_vector {
-  width: 57px;
-  height: 50px;
+.first .wagon-type_vector {
+  /* width: 57px;
+  height: 50px; */
   background-image: url(../img/icon_type_vagon_luxury.png);
 }
 
-.seat-active, .platzKarte-active, .coupe-active, .luxury-active {
+.fourth-active, .third-active, .second-active, .first-active {
   color: #FFA800;
 }
 
- .seat-active .wagon-type_vector-active, .seat:hover .wagon-type_vector {
-  width: 31px;
-  height: 50px;
+ .fourth-active .wagon-type_vector, .fourth:hover .wagon-type_vector {
+  /* width: 31px;
+  height: 50px; */
   background-image: url(../img/icon_type_vagon_seat_checked.png);
 }
 
- .platzKarte-active .wagon-type_vector-active, .platzKarte:hover .wagon-type_vector {
+ .third-active .wagon-type_vector, .third:hover .wagon-type_vector {
   background-image: url(../img/icon_type_vagon_reserved_seat_checked.png);
 }
 
- .coupe-active .wagon-type_vector-active, .coupe:hover .wagon-type_vector {
-  width: 50px;
-  height: 50px;
+ .second-active .wagon-type_vector, .second:hover .wagon-type_vector {
+  /* width: 50px;
+  height: 50px; */
   background-image: url(../img/icon_type_vagon_coupe_checked.png);
 }
 
-.luxury-active .wagon-type_vector-active, .luxury:hover .wagon-type_vector {
+.first-active .wagon-type_vector, .first:hover .wagon-type_vector {
   background-image: url(../img/icon_type_vagon_luxury_checked.png);
 }
 
@@ -376,7 +379,7 @@ display: flex;
 
 .big-num {
   font-weight: bold;
-  font-size: 72px;
+  /* font-size: 72px; */
 }
 
 .wagon-description {

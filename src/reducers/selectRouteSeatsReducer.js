@@ -8,7 +8,7 @@ import {
 
 const initialState = {
   route: {},
-  seats: {},
+  seats: [],
   loading: false,
   error: null,
 };

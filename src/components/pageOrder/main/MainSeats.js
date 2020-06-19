@@ -9,6 +9,7 @@ import changeFiltrStorage, { getLastFiltr } from '../../../utils/filtr-storage';
 
 import SeatsTrainDescription from './SeatsTrainDescription';
 import AmountTickets from './AmountTickets';
+import SelectedClassVagon from './SelectedClassVagon';
 
 
 export default function MainSeats(props) {
@@ -18,26 +19,54 @@ export default function MainSeats(props) {
   const id = match.params.id;
   const history = useHistory();
 
+  const [arrClassVagons, setArrClassVagons] = useState([]);
+  const [activeClassVagon, setActiveClassVagon] = useState();
+  const [itemClassVagons, setItemClassVagons] = useState();
+
+  const classes = {
+    first: 'Люкс',
+    second: 'Купе',
+    third: 'Плацкарт',
+    fourth: 'Сидячий',
+  };
+
   useEffect(() => {
     console.log('tttt');
     const { order } = getLastFiltr();
-// console.log({...order});
     dispatch(fetchStorageInitOrder(order));
     dispatch(fetchSeatsRequest(id));
-  }, [])
+  }, []);
+
+  useEffect(() => {
+    const tempClassVagon = [];
+    if (seats.length > 0) {
+      seats.forEach(item => {
+        if (!tempClassVagon.includes(item.coach.class_type)) {
+          tempClassVagon.push(item.coach.class_type)
+        }
+      });
+    }
+    setArrClassVagons(tempClassVagon);
+  }, [seats])
   
   const handleChooseAnotherTrain = () => {
     changeFiltrStorage({ field: 'order', value: {}});
-    // history.push(`order`);
   }
 
-  console.log(route);
+  const selectClassVagon = (classVagon) => {
+    setActiveClassVagon(classVagon);
+    
+    const vagons = seats.filter((item) => {
+      if (item.coach.class_type === classVagon) {
+        return item;
+      }
+    });
+    setItemClassVagons(vagons);
+  }
+
+  // console.log(itemClassVagons);
   console.log(seats);
-  // fetch( `https://netology-trainbooking.herokuapp.com/routes/${id}/seats` )
-  //   .then( response => response.json())
-  //   .then( data => console.log( data ));
-  
-  console.log(id);
+
   return (
     <section className="seats-content main-block">
       <h1 className="seats-title">Выбор мест</h1>
@@ -49,6 +78,19 @@ export default function MainSeats(props) {
         <SeatsTrainDescription itemTrain={route.departure}/>
 
         <AmountTickets />
+        <div className="wagon">
+          <p className="wagon-type-title">Тип вагона</p>
+          <ul className="wagon-types-list">
+            {!!arrClassVagons.length && arrClassVagons.map((itemClass, index) => (
+              <li
+                className={`wagon-type ${itemClass}${activeClassVagon === itemClass ? '-active' : ''}`}
+                key={index}
+                onClick={()=>selectClassVagon(itemClass)}
+              ><span className="wagon-type_vector"></span>{classes[itemClass]}</li>
+            ))}
+          </ul>
+          {itemClassVagons && <SelectedClassVagon itemClassVagons={itemClassVagons} />}
+        </div>
       </div>}
     </section>
   );

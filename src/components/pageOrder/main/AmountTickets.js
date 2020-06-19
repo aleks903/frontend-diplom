@@ -33,7 +33,9 @@ export default function AmountTickets(props) {
   useEffect(() => {
     const { ticketCount } = getLastFiltr();
     // console.log(ticketCount);
-    setTicketCount(ticketCount);
+    if (ticketCount) {
+      setTicketCount(ticketCount);
+    }
   }, [])
 
   useEffect(() => {
