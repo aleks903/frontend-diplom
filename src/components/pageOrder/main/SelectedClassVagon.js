@@ -7,8 +7,9 @@ export default function SelectedClassVagon(props) {
   const [activeVagon, setActiveVagon] = useState([]);
 
   useEffect(() => {
+    console.log('effect');
     setActiveVagon([]);
-  }, [itemClassVagons])
+  }, [itemClassVagons]);
 
   const changeActiveVagon = (nameVagon) => {
     // console.log(nameVagon);

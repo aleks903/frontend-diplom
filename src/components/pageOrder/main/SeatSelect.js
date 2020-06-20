@@ -5,15 +5,45 @@ export default function SeatSelect(props) {
 
   console.log(itemVagon);
 
+  // top
+  // bottom
+  // 32 mest v kypeynom
+
+  const seatsOnVagon = 32;
+  const schemSeats = {
+    seatTop: [],
+    amountSeatTop: 0,
+    seatBottom: [],
+    amountSeatBottom: 0,
+  };
+
+  for (let seatsNum = 0; seatsNum < seatsOnVagon; seatsNum += 1) {
+    let itemSeat = itemVagon.seats[seatsNum] ? itemVagon.seats[seatsNum] : {index: seatsNum + 1, available: false};
+
+    if (seatsNum < 32) {
+
+      if (seatsNum % 2) {
+        if (itemSeat.available) schemSeats.amountSeatTop += 1;
+        schemSeats.seatTop.push(itemSeat);
+      } else {
+        if (itemSeat.available) schemSeats.amountSeatBottom += 1;
+        schemSeats.seatBottom.push(itemSeat);
+      }
+    }
+  }
+
+  console.log(schemSeats);
+
   return (
     <div className="seat-select-form">
       <div className="big-wagon-num">
         <p className="big-num">{itemVagon.coach.name}</p>
         <p>вагон</p>
       </div>
+
       <div className="wagon-description">
         <div className="seats-positions">
-          <p>Места <span className="available-seats">11</span></p>
+          <p>Места <span className="available-seats">{itemVagon.coach.available_seats}</span></p>
           <p className="seats-position">Верхние <span className="available-seats">3</span></p>
           <p className="seats-position">Нижние <span className="available-seats">8</span></p>
         </div>

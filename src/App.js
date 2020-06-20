@@ -1,22 +1,10 @@
 import React from 'react';
 import { HashRouter as Router, Route, Switch } from 'react-router-dom';
-// import Header from './components/Header';
-// import Banner from './components/Banner';
-// import Footer from './components/Footer';
-// import PageHome from './components/PageHome';
-// import PageCatalog from './components/PageCatalog';
-// import PageAbout from './components/PageAbout';
-// import PageContacts from './components/PageContacts';
-// import Page404 from './components/Page404';
-// import PageProduct from './components/PageProduct';
-// import PageCart from './components/PageCart';
 import MainPage from './components/pageMain/MainPage';
 import OrderPage from './components/pageOrder/OrderPage';
 
-// eslint-disable-next-line
 import regeneratorRuntime from 'regenerator-runtime';
 
-// import 'react-input-range/lib/css/index.css';
 import './css/SeatSelect.css';
 import './css/MainPage.css';
 import './css/style.css';
