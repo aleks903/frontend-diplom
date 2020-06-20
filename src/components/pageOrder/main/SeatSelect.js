@@ -1,38 +1,67 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 
 export default function SeatSelect(props) {
+  const { vagons, selectedClassVagon, selectedVagon } = useSelector((state) => state.selectRouteSeats);
   const { itemVagon } = props;
 
   console.log(itemVagon);
-
+ 
   // top
   // bottom
   // 32 mest v kypeynom
 
-  const seatsOnVagon = 32;
+  let seatsOnVagon = null;
+  switch (selectedClassVagon) {
+    case 'first':
+      seatsOnVagon = 18;
+      break;
+    case 'second':
+      seatsOnVagon = 32;
+      break;
+    case 'third':
+      seatsOnVagon = 48;
+      break;
+    case 'fourth':
+      seatsOnVagon = 62;
+      break;
+  }
+
   const schemSeats = {
     seatTop: [],
     amountSeatTop: 0,
     seatBottom: [],
     amountSeatBottom: 0,
+    seatSide: [],
+    amountSeatSide: 0,
   };
 
   for (let seatsNum = 0; seatsNum < seatsOnVagon; seatsNum += 1) {
     let itemSeat = itemVagon.seats[seatsNum] ? itemVagon.seats[seatsNum] : {index: seatsNum + 1, available: false};
 
-    if (seatsNum < 32) {
-
-      if (seatsNum % 2) {
+    if (itemVagon.coach.class_type !== 'first' &&
+    itemVagon.coach.class_type !== 'fourth') {
+      if (seatsNum < 32) {
+        if (seatsNum % 2) {
+          if (itemSeat.available) schemSeats.amountSeatTop += 1;
+          schemSeats.seatTop.push(itemSeat);
+        } else {
+          if (itemSeat.available) schemSeats.amountSeatBottom += 1;
+          schemSeats.seatBottom.push(itemSeat);
+        }
+      }
+      if (selectedClassVagon === 'third') {
+        if (itemSeat.available) schemSeats.amountSeatSide += 1;
+        schemSeats.seatSide.push(itemSeat);
+      }
+    } else {
         if (itemSeat.available) schemSeats.amountSeatTop += 1;
         schemSeats.seatTop.push(itemSeat);
-      } else {
-        if (itemSeat.available) schemSeats.amountSeatBottom += 1;
-        schemSeats.seatBottom.push(itemSeat);
-      }
     }
   }
 
   console.log(schemSeats);
+  console.log(itemVagon.coach.class_type);
 
   return (
     <div className="seat-select-form">
@@ -43,15 +72,43 @@ export default function SeatSelect(props) {
 
       <div className="wagon-description">
         <div className="seats-positions">
-          <p>Места <span className="available-seats">{itemVagon.coach.available_seats}</span></p>
-          <p className="seats-position">Верхние <span className="available-seats">3</span></p>
-          <p className="seats-position">Нижние <span className="available-seats">8</span></p>
+          <p>Места <span className="available-seats">{schemSeats.amountSeatTop + schemSeats.amountSeatBottom + schemSeats.amountSeatSide}</span></p>
+          {itemVagon.coach.class_type !== 'first' &&
+          itemVagon.coach.class_type !== 'fourth' &&
+            <React.Fragment>
+              <p className="seats-position">Верхние <span className="available-seats">{schemSeats.amountSeatTop}</span></p>
+  
+              <p className="seats-position">Нижние <span className="available-seats">{schemSeats.amountSeatBottom}</span></p>
+  
+              {itemVagon.coach.class_type === 'third' &&
+                <p className="seats-position">Боковое <span className="available-seats">{schemSeats.amountSeatSide}</span></p>
+              }
+            </React.Fragment>
+          }
         </div>
 
         <div className="seats-prices">
           <p>Стоимость</p>
-          <p className="seats-price">2920<span className="rub-vector-small"></span></p>
-          <p className="seats-price">3530<span className="rub-vector-small"></span></p>
+          {itemVagon.coach.class_type === 'first' &&
+            <p className="seats-price">{itemVagon.coach.price}<span className="rub-vector-small"></span></p>
+          }
+          {itemVagon.coach.class_type === 'fourth' &&
+            <p className="seats-price">{itemVagon.coach.top_price}<span className="rub-vector-small"></span></p>
+          }
+
+
+          {itemVagon.coach.class_type !== 'first' &&
+          itemVagon.coach.class_type !== 'fourth' &&
+            <React.Fragment>
+              <p className="seats-price">{itemVagon.coach.top_price}<span className="rub-vector-small"></span></p>
+  
+              <p className="seats-price">{itemVagon.coach.bottom_price}<span className="rub-vector-small"></span></p>
+  
+              {itemVagon.coach.class_type === 'third' &&
+                <p className="seats-price">{itemVagon.coach.side_price}<span className="rub-vector-small"></span></p>
+              }
+            </React.Fragment>
+          }
         </div>
 
         <div className="wagon-facilities">

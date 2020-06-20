@@ -400,7 +400,7 @@
 .seats-positions, .seats-prices {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  /* justify-content: space-between; */
 }
 
 .available-seats {
@@ -420,15 +420,14 @@
   height: 29px;
 }
 
-.seats-position {
+.seats-position, .seats-price {
   font-size: 24px;
   color: #000000;
+  padding-top: 30px;
 }
 
 .seats-price {
-  font-size: 24px;
   font-weight: bold;
-  color: #000000;
   align-items: baseline;
 }
 

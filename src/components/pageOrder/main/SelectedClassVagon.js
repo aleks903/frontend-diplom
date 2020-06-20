@@ -1,48 +1,57 @@
 import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+
+import { fetchSelectVagon } from '../../../actions/selectRouteSeatsAcions';
 
 import SeatSelect from './SeatSelect';
 
-export default function SelectedClassVagon(props) {
-  const { itemClassVagons } = props;
-  const [activeVagon, setActiveVagon] = useState([]);
+export default function SelectedClassVagon() {
+  // const { itemClassVagons } = props;
+  const { vagons, selectedClassVagon, selectedVagon } = useSelector((state) => state.selectRouteSeats);
+  const dispatch = useDispatch();
 
+  const [activeVagons, setActiveVagons] = useState([]);
+  
   useEffect(() => {
-    console.log('effect');
-    setActiveVagon([]);
-  }, [itemClassVagons]);
+    setActiveVagons(
+      vagons.filter((item) => {
+        if (item.coach.class_type === selectedClassVagon) {
+          return item;
+        }
+      })
+    );
+  }, [vagons, selectedClassVagon]);
+
 
   const changeActiveVagon = (nameVagon) => {
-    // console.log(nameVagon);
-    if (activeVagon.includes(nameVagon)) {
-      setActiveVagon(activeVagon.filter((item)=> item !== nameVagon));
+    let itemSelectedVagon = [];
+    if (selectedVagon.includes(nameVagon)) {
+      itemSelectedVagon = selectedVagon.filter((item)=> item !== nameVagon);
     } else {
-      setActiveVagon(prevState => [...prevState, nameVagon]);
+      itemSelectedVagon = [...selectedVagon, nameVagon];
     }
+    dispatch(fetchSelectVagon({selectedVagon: itemSelectedVagon}));
   };
   
-  console.log(itemClassVagons);
-  console.log(activeVagon);
   return (
     <React.Fragment>
       <div className="wagon-numbers">
         <p className="numbers-title">Вагоны</p>
         <ul className="wagon-numbers-list">
-          {itemClassVagons && itemClassVagons.map((itemVagon, index) => (
+          {activeVagons && activeVagons.map((itemVagon, index) => (
             <li
-              className={`${activeVagon.includes(itemVagon.coach.name) ? 'active-' : ''}wagon-number`}
+              className={`${selectedVagon.includes(itemVagon.coach.name) ? 'active-' : ''}wagon-number`}
               onClick={()=>changeActiveVagon(itemVagon.coach.name)}
               key={index}
             >
               {itemVagon.coach.name}
             </li>  
           ))}
-          {/* <li className="wagon-number">07</li>
-          <li className="active-wagon-number">09</li> */}
         </ul>
         <p className="number-disclamer">Нумерация вагонов начинается с головы поезда</p>
       </div>
-      {!!activeVagon.length && activeVagon.map((activeVagon, index) => (
-        <SeatSelect itemVagon={itemClassVagons.filter((item) => activeVagon === item.coach.name)[0]} key={index} />
+      {!!selectedVagon.length && selectedVagon.map((activeVagon, index) => (
+        <SeatSelect itemVagon={vagons.filter((item) => activeVagon === item.coach.name)[0]} key={index} />
       ))}
     </React.Fragment>
   );

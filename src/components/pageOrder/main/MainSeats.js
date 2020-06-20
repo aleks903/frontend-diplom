@@ -4,7 +4,11 @@ import { useHistory } from 'react-router-dom';
 import { Link } from "react-router-dom";
 // import moment from 'moment';
 
-import { fetchSeatsRequest, fetchStorageInitOrder } from '../../../actions/selectRouteSeatsAcions';
+import {
+  fetchSeatsRequest,
+  fetchStorageInitOrder,
+  fetchSelectClassVagon
+} from '../../../actions/selectRouteSeatsAcions';
 import changeFiltrStorage, { getLastFiltr } from '../../../utils/filtr-storage';
 
 import SeatsTrainDescription from './SeatsTrainDescription';
@@ -13,7 +17,7 @@ import SelectedClassVagon from './SelectedClassVagon';
 
 
 export default function MainSeats(props) {
-  const { route, seats, loading, error } = useSelector((state) => state.selectRouteSeats);
+  const { route, vagons, loading, error } = useSelector((state) => state.selectRouteSeats);
   const dispatch = useDispatch();
   const { match } = props;
   const id = match.params.id;
@@ -39,15 +43,15 @@ export default function MainSeats(props) {
 
   useEffect(() => {
     const tempClassVagon = [];
-    if (seats.length > 0) {
-      seats.forEach(item => {
+    if (vagons.length > 0) {
+      vagons.forEach(item => {
         if (!tempClassVagon.includes(item.coach.class_type)) {
           tempClassVagon.push(item.coach.class_type)
         }
       });
     }
     setArrClassVagons(tempClassVagon);
-  }, [seats])
+  }, [vagons])
   
   const handleChooseAnotherTrain = () => {
     changeFiltrStorage({ field: 'order', value: {}});
@@ -55,17 +59,12 @@ export default function MainSeats(props) {
 
   const selectClassVagon = (classVagon) => {
     setActiveClassVagon(classVagon);
-    
-    const vagons = seats.filter((item) => {
-      if (item.coach.class_type === classVagon) {
-        return item;
-      }
-    });
-    setItemClassVagons(vagons);
+    dispatch(fetchSelectClassVagon({classVagon}));
+    // setItemClassVagons(vagons);
   }
 
   // console.log(itemClassVagons);
-  console.log(seats);
+  console.log(vagons);
 
   return (
     <section className="seats-content main-block">
@@ -89,7 +88,8 @@ export default function MainSeats(props) {
               ><span className="wagon-type_vector"></span>{classes[itemClass]}</li>
             ))}
           </ul>
-          {itemClassVagons && <SelectedClassVagon itemClassVagons={itemClassVagons} />}
+          <SelectedClassVagon />
+          {/* {itemClassVagons && <SelectedClassVagon itemClassVagons={itemClassVagons} />} */}
         </div>
       </div>}
     </section>
