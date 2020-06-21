@@ -4,15 +4,15 @@ import {
   FETCH_SEATS_SUCCESS,
   FETCH_SEATS_FAILURE,
   FETCH_STORAGE_INIT_ORDER,
-  FETCH_SELECT_CLASS_VAGON,
-  FETCH_SELECT_VAGON,
+  FETCH_SELECT_CLASS_WAGON,
+  FETCH_SELECT_WAGON,
 } from '../types/selectRouteSeatsTypes'
 
 const initialState = {
   route: {},
-  vagons: [],
-  selectedClassVagon: null,
-  selectedVagon: [],
+  wagons: [],
+  selectedClassWagon: null,
+  selectedWagon: [],
   loading: false,
   error: null,
 };
@@ -30,15 +30,14 @@ export default function selectRouteSeatsReducer(state = initialState, action) {
         ...state,
         loading: true,
         error: null,
-        selectedVagon: [],
-        selectedClassVagon: null,
+        selectedWagon: [],
+        selectedClassWagon: null,
       };
     case FETCH_SEATS_SUCCESS:
-      console.log(action.payload);
       const { data } = action.payload;
       return {
         ...state,
-        vagons: data,
+        wagons: data,
         loading: false,
         error: null,
       };
@@ -48,17 +47,16 @@ export default function selectRouteSeatsReducer(state = initialState, action) {
       return { ...state, loading: false, error };
     case FETCH_STORAGE_INIT_ORDER:
       return { ...state, ...action.payload };
-    case FETCH_SELECT_CLASS_VAGON:
-      console.log(action.payload);
-      const { classVagon } = action.payload;
+    case FETCH_SELECT_CLASS_WAGON:
+      const { classWagon } = action.payload;
       return {
         ...state,
-        selectedClassVagon: classVagon,
-        selectedVagon: [],
+        selectedClassWagon: classWagon,
+        selectedWagon: [],
       };
-    case FETCH_SELECT_VAGON:
-      const { selectedVagon } = action.payload;
-      return { ...state, selectedVagon };
+    case FETCH_SELECT_WAGON:
+      const { selectedWagon } = action.payload;
+      return { ...state, selectedWagon };
 
     default:
       return { ...state };

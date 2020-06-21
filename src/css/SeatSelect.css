@@ -625,6 +625,9 @@
   cursor: pointer;
 }
 
+.scheme_top-seats li, .scheme_bottom-seats li {
+  box-sizing: content-box;;
+}
 .scheme_wagon-number {
   position: relative;
   left: 40px;
@@ -642,7 +645,7 @@
   text-align: center;
   font-weight: 700;
   line-height: 25px;
-  padding-left: 129px
+  padding-left: 130px
 }
 
 .scheme_side-seats {
@@ -674,7 +677,7 @@
 .scheme_bottom-seats li {
   height: 29px;
   width: 26px;
-  border-bottom: 5px solid #928f94d6;
+  border-bottom: 4px solid #928f94d6;
 }
 
 .scheme_top-seats li:nth-child(odd), .scheme_bottom-seats li:nth-child(odd) {

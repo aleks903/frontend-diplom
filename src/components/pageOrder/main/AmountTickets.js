@@ -116,27 +116,6 @@ const testtt = () => {
           </p>
         </div>
         ))}
-
-        {/* <div className={`ticket-count ${ticketCount.activeTicketCount && 'active-count'} adult`}>
-          <div className="count-screen">
-            <p>Взрослых - 2</p>
-          </div>
-          <p className="seat-description">Можно добавить еще 3 пассажиров</p>
-        </div>
-        <div className={`ticket-count ${ticketCount.activeTicketCount && 'active-count'} kids`}>
-          <div className="count-screen">
-            <p>Детских - 1</p>
-          </div>
-          <p className="seat-description">Можно добавить еще 3 детей до 10 лет.Свое место в вагоне, как у взрослых,
-            но дешевле в среднем на 50-65%</p>
-        </div>
-        <div className={`ticket-count ${ticketCount.eTicketCount && 'active-count'} kidsWithoutSeats`}>
-          <div className="count-screen">
-            <p>Детских «без места» — 0</p>
-          </div>
-          <p className="seat-description"></p>
-        </div> */}
-
       </div>
     </div>
   );

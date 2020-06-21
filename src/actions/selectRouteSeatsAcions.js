@@ -4,8 +4,8 @@ import {
   FETCH_SEATS_SUCCESS,
   FETCH_SEATS_FAILURE,
   FETCH_STORAGE_INIT_ORDER,
-  FETCH_SELECT_CLASS_VAGON,
-  FETCH_SELECT_VAGON,
+  FETCH_SELECT_CLASS_WAGON,
+  FETCH_SELECT_WAGON,
 } from '../types/selectRouteSeatsTypes'
 
 export function fetchSelectRoute(itemRoute) {
@@ -43,16 +43,16 @@ export function fetchStorageInitOrder(storageData) {
   };
 }
 
-export function fetchSelectClassVagon(classVagon) {
+export function fetchSelectClassWagon(classWagon) {
   return {
-    type: FETCH_SELECT_CLASS_VAGON,
-    payload: classVagon,
+    type: FETCH_SELECT_CLASS_WAGON,
+    payload: classWagon,
   };
 }
 
-export function fetchSelectVagon(selectedVagon) {
+export function fetchSelectWagon(selectedWagon) {
   return {
-    type: FETCH_SELECT_VAGON,
-    payload: selectedVagon,
+    type: FETCH_SELECT_WAGON,
+    payload: selectedWagon,
   };
 }

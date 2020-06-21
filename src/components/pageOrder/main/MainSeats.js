@@ -7,25 +7,26 @@ import { Link } from "react-router-dom";
 import {
   fetchSeatsRequest,
   fetchStorageInitOrder,
-  fetchSelectClassVagon
+  fetchSelectClassWagon
 } from '../../../actions/selectRouteSeatsAcions';
 import changeFiltrStorage, { getLastFiltr } from '../../../utils/filtr-storage';
 
 import SeatsTrainDescription from './SeatsTrainDescription';
 import AmountTickets from './AmountTickets';
-import SelectedClassVagon from './SelectedClassVagon';
+import SelectedClassWagon from './SelectedClassWagon';
+import Loading from '../../elements/Loading';
 
 
 export default function MainSeats(props) {
-  const { route, vagons, loading, error } = useSelector((state) => state.selectRouteSeats);
+  const { route, wagons, loading, error } = useSelector((state) => state.selectRouteSeats);
   const dispatch = useDispatch();
   const { match } = props;
   const id = match.params.id;
   const history = useHistory();
 
-  const [arrClassVagons, setArrClassVagons] = useState([]);
-  const [activeClassVagon, setActiveClassVagon] = useState();
-  const [itemClassVagons, setItemClassVagons] = useState();
+  const [arrClassWagons, setArrClassWagons] = useState([]);
+  const [activeClassWagon, setActiveClassWagon] = useState();
+  const [itemClassWagons, setItemClassWagons] = useState();
 
   const classes = {
     first: 'Люкс',
@@ -42,29 +43,29 @@ export default function MainSeats(props) {
   }, []);
 
   useEffect(() => {
-    const tempClassVagon = [];
-    if (vagons.length > 0) {
-      vagons.forEach(item => {
-        if (!tempClassVagon.includes(item.coach.class_type)) {
-          tempClassVagon.push(item.coach.class_type)
+    const tempClassWagon = [];
+    if (wagons.length > 0) {
+      wagons.forEach(item => {
+        if (!tempClassWagon.includes(item.coach.class_type)) {
+          tempClassWagon.push(item.coach.class_type)
         }
       });
     }
-    setArrClassVagons(tempClassVagon);
-  }, [vagons])
+    setArrClassWagons(tempClassWagon);
+  }, [wagons])
   
   const handleChooseAnotherTrain = () => {
     changeFiltrStorage({ field: 'order', value: {}});
   }
 
-  const selectClassVagon = (classVagon) => {
-    setActiveClassVagon(classVagon);
-    dispatch(fetchSelectClassVagon({classVagon}));
-    // setItemClassVagons(vagons);
+  const selectClassWagon = (classWagon) => {
+    setActiveClassWagon(classWagon);
+    dispatch(fetchSelectClassWagon({classWagon}));
+    // setItemClassWagons(wagons);
   }
 
-  // console.log(itemClassVagons);
-  console.log(vagons);
+  // console.log(itemClassWagons);
+  console.log(wagons);
 
   return (
     <section className="seats-content main-block">
@@ -79,17 +80,22 @@ export default function MainSeats(props) {
         <AmountTickets />
         <div className="wagon">
           <p className="wagon-type-title">Тип вагона</p>
-          <ul className="wagon-types-list">
-            {!!arrClassVagons.length && arrClassVagons.map((itemClass, index) => (
-              <li
-                className={`wagon-type ${itemClass}${activeClassVagon === itemClass ? '-active' : ''}`}
-                key={index}
-                onClick={()=>selectClassVagon(itemClass)}
-              ><span className="wagon-type_vector"></span>{classes[itemClass]}</li>
-            ))}
-          </ul>
-          <SelectedClassVagon />
-          {/* {itemClassVagons && <SelectedClassVagon itemClassVagons={itemClassVagons} />} */}
+          {loading && <Loading />}
+          {!loading && 
+          <React.Fragment>
+            <ul className="wagon-types-list">
+              {!!arrClassWagons.length && arrClassWagons.map((itemClass, index) => (
+                <li
+                  className={`wagon-type ${itemClass}${activeClassWagon === itemClass ? '-active' : ''}`}
+                  key={index}
+                  onClick={()=>selectClassWagon(itemClass)}
+                ><span className="wagon-type_vector"></span>{classes[itemClass]}</li>
+              ))}
+            </ul>
+            <SelectedClassWagon />
+          </React.Fragment>
+          }
+          {/* {itemClassWagons && <SelectedClassWagon itemClassWagons={itemClassWagons} />} */}
         </div>
       </div>}
     </section>
