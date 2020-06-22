@@ -649,7 +649,7 @@
 }
 
 .scheme_side-seats {
-  padding: 25px 0 0 130px;
+  padding: 15px 0 0 130px;
 }
 
 .place_is_taken {
@@ -714,6 +714,7 @@
 .scheme_side-seats li {
   height: 29px;
   width: 43px;
+  box-sizing: content-box;
   border-bottom: 5px solid #928f94d6;
 }
 
@@ -724,6 +725,7 @@
 
 .scheme_side-seats li:first-child {
   width: 40px;
+  box-sizing: content-box;
   border-left: 4px solid #928f94d6;
 }
 
@@ -732,6 +734,7 @@
 }
 
 .scheme_side-seats li:nth-child(2n) {
+  box-sizing: content-box;
   border-right: 4px solid #928f94d6;
 }
 

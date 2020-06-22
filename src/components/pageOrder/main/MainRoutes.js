@@ -24,9 +24,9 @@ export default function MainRoutes() {
     {traiClass: 'third', nameClass: 'Плацкарт'},
     {traiClass: 'fourth', nameClass: 'Сидячий'},
   ];
-  console.log(items);
 
   const handleSeats = (itemTrain) => {
+    console.log(itemTrain);
     changeFiltrStorage({ field: 'order', value: { route: itemTrain }});
     dispatch(fetchSelectRoute(itemTrain));
     history.push(`order/${itemTrain.departure._id}`);
@@ -113,18 +113,7 @@ export default function MainRoutes() {
                             </li>
                           }
                         </React.Fragment>
-                        // <p>
-                        //   {item.departure.available_seats_info[itemClass.traiClass]}
-                        // </p>
-                        
-                        
                       ))}
-                      {/* <li><span className="type">Плацкарт</span> <span className="seats">52</span>oт <span className="place-ticket-price">2530<span
-                            className="rub-vector-small"></span></span></li>
-                      <li><span className="type">Купе</span> <span className="seats">24</span>oт <span className="place-ticket-price">3820<span
-                            className="rub-vector-small"></span></span></li>
-                      <li><span className="type">Люкс</span><span className="seats">15</span>oт <span className="place-ticket-price">4950<span
-                            className="rub-vector-small"></span></span></li> */}
                     </ul>
                     <div className="train-comfort-available-props">
                       {item.departure.have_wifi && <span className="comfort-props_vector icon-wifi"></span>}

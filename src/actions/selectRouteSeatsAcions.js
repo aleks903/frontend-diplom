@@ -4,8 +4,10 @@ import {
   FETCH_SEATS_SUCCESS,
   FETCH_SEATS_FAILURE,
   FETCH_STORAGE_INIT_ORDER,
+  FETCH_STORAGE_INIT_WAGON,
   FETCH_SELECT_CLASS_WAGON,
   FETCH_SELECT_WAGON,
+  FETCH_CHANGE_FACILITIES,
 } from '../types/selectRouteSeatsTypes'
 
 export function fetchSelectRoute(itemRoute) {
@@ -43,6 +45,13 @@ export function fetchStorageInitOrder(storageData) {
   };
 }
 
+export function fetchStorageInitWagon(storageDataWagon) {
+  return {
+    type: FETCH_STORAGE_INIT_WAGON,
+    payload: storageDataWagon,
+  };
+}
+
 export function fetchSelectClassWagon(classWagon) {
   return {
     type: FETCH_SELECT_CLASS_WAGON,
@@ -54,5 +63,12 @@ export function fetchSelectWagon(selectedWagon) {
   return {
     type: FETCH_SELECT_WAGON,
     payload: selectedWagon,
+  };
+}
+
+export function fetchChangeFacilities(itemWagonFacilities) {
+  return {
+    type: FETCH_CHANGE_FACILITIES,
+    payload: itemWagonFacilities,
   };
 }

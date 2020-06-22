@@ -1,16 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+
 import SeatsScheme from './SeatsScheme';
+
+import { fetchChangeFacilities, fetchStorageInitWagon } from '../../../actions/selectRouteSeatsAcions';
+import changeFiltrStorage, { getLastFiltr } from '../../../utils/filtr-storage'
 
 export default function SeatSelect(props) {
   const { wagons, selectedClassWagon, selectedWagon } = useSelector((state) => state.selectRouteSeats);
   const { itemWagon } = props;
-  const [facilities, setFacilities] = useState({
-    activeFacilities: [],
-    priceFacilities: 0,
-  });
+  const dispatch = useDispatch();
+  // const [facilities, setFacilities] = useState({
+  //   activeFacilities: [],
+  //   priceFacilities: 0,
+  // });
 
+  useEffect(() => {
+    // const { wagons } = getLastFiltr();
+    // dispatch(fetchStorageInitWagon(wagons));
+    // dispatch(fetchSeatsRequest(id));
+  }, []);
 
+  useEffect(() => {
+    console.log(wagons);
+    console.log(itemWagon);
+    changeFiltrStorage({ field: 'wagons', value: wagons });
+  }, [wagons])
 
  
   // top
@@ -67,22 +82,33 @@ export default function SeatSelect(props) {
   }
 
   const changeFacilities = (facilitiesName, facilitiesPrice) => {
-    const { activeFacilities, priceFacilities } = facilities;
-    if (activeFacilities.includes(facilitiesName)) {
-      setFacilities({
-        activeFacilities: activeFacilities.filter((item)=> item !== facilitiesName),
-        priceFacilities: priceFacilities - facilitiesPrice,
-      });
-    } else {
-      setFacilities({
-        activeFacilities: [...activeFacilities, facilitiesName],
-        priceFacilities: priceFacilities + facilitiesPrice,
-      });
+    console.log(facilitiesName !== 'linens');
+    if (itemWagon.coach.is_linens_included && facilitiesName === 'linens') {
+      return;
     }
 
-    console.log(itemWagon);
+    let tempFacilities = null;
+    const { activeFacilities, priceFacilities } = itemWagon.facilities;
+    if (activeFacilities.includes(facilitiesName)) {
+      tempFacilities = {
+        activeFacilities: activeFacilities.filter((item)=> item !== facilitiesName),
+        priceFacilities: priceFacilities - facilitiesPrice,
+      };
+    } else {
+      tempFacilities = {
+        activeFacilities: [...activeFacilities, facilitiesName],
+        priceFacilities: priceFacilities + facilitiesPrice,
+      };
+    }
+
+    // setFacilities(tempFacilities);
+
+    const nameWagon = itemWagon.coach.name;
+    dispatch(fetchChangeFacilities({nameWagon, facilities: tempFacilities}));
+
+    
   }
-  console.log(facilities);
+  // console.log(facilities);
 
   // console.log(schemSeats);
   
@@ -141,14 +167,14 @@ export default function SeatSelect(props) {
             <ul className="facilities-list">
             
               {itemWagon.coach.have_air_conditioning &&
-                <li data-title="Кондиционер" className={`facilities-vector conditioner${facilities.activeFacilities.includes('conditioner') ? ' active conditioner-active' : ''}`} onClick={() => changeFacilities('conditioner', 0)}></li>
+                <li data-title="Кондиционер" className={`facilities-vector conditioner${itemWagon.facilities.activeFacilities.includes('conditioner') ? ' active conditioner-active' : ''}`} onClick={() => changeFacilities('conditioner', 0)}></li>
               }
               {itemWagon.coach.have_wifi &&
-                <li data-title="Wi-Fi" className={`facilities-vector wifi${facilities.activeFacilities.includes('wifi') ? ' active wifi-active' : ''}`} onClick={() => changeFacilities('wifi', itemWagon.coach.wifi_price)}></li>
+                <li data-title="Wi-Fi" className={`facilities-vector wifi${itemWagon.facilities.activeFacilities.includes('wifi') ? ' active wifi-active' : ''}`} onClick={() => changeFacilities('wifi', itemWagon.coach.wifi_price)}></li>
               }
-              <li data-title="Белье"  className={`facilities-vector linens${itemWagon.coach.is_linens_included ? ' included linens-included' : facilities.activeFacilities.includes('linens') ? ' active linens-active' : ''}`}  onClick={() => changeFacilities('linens', itemWagon.coach.linens_price)}></li>
+              <li data-title="Белье"  className={`facilities-vector linens${itemWagon.coach.is_linens_included ? ' included linens-included' : itemWagon.facilities.activeFacilities.includes('linens') ? ' active linens-active' : ''}`}  onClick={() => changeFacilities('linens', itemWagon.coach.linens_price)}></li>
 
-              <li data-title="Питание" className={`facilities-vector food${facilities.activeFacilities.includes('food') ? ' active food-active' : ''}`} onClick={() => changeFacilities('food', 0)}></li>
+              <li data-title="Питание" className={`facilities-vector food${itemWagon.facilities.activeFacilities.includes('food') ? ' active food-active' : ''}`} onClick={() => changeFacilities('food', 0)}></li>
 
             </ul>
           </div>
@@ -158,7 +184,10 @@ export default function SeatSelect(props) {
         <p>11 человек выбирают места в этом поезде</p>
       </div>
 
-      <SeatsScheme />
+      <SeatsScheme
+        nameWagon={itemWagon.coach.name}
+        arrSeats={schemSeats}
+      />
                
             <div className="total-price">8080<span className="rub-vector-small"></span></div>
     </React.Fragment>

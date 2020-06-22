@@ -7,7 +7,8 @@ import { Link } from "react-router-dom";
 import {
   fetchSeatsRequest,
   fetchStorageInitOrder,
-  fetchSelectClassWagon
+  fetchStorageInitWagon,
+  fetchSelectClassWagon,
 } from '../../../actions/selectRouteSeatsAcions';
 import changeFiltrStorage, { getLastFiltr } from '../../../utils/filtr-storage';
 
@@ -37,9 +38,11 @@ export default function MainSeats(props) {
 
   useEffect(() => {
     console.log('tttt');
-    const { order } = getLastFiltr();
+    const { order, wagons } = getLastFiltr();
     dispatch(fetchStorageInitOrder(order));
     dispatch(fetchSeatsRequest(id));
+    console.log(!wagons);
+    // dispatch(fetchStorageInitWagon(wagons));
   }, []);
 
   useEffect(() => {
@@ -56,6 +59,8 @@ export default function MainSeats(props) {
   
   const handleChooseAnotherTrain = () => {
     changeFiltrStorage({ field: 'order', value: {}});
+    changeFiltrStorage({ field: 'wagons', value: []});
+    // changeFiltrStorage({ field: 'wagons', value: []});
   }
 
   const selectClassWagon = (classWagon) => {
