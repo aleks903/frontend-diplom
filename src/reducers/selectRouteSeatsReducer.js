@@ -26,6 +26,7 @@ export default function selectRouteSeatsReducer(state = initialState, action) {
       return {
         ...state,
         route: itemRoute,
+        wagons: [],
       };
     case FETCH_SEATS_REQUEST:
       return {

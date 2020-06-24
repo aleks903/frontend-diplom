@@ -19,6 +19,7 @@ export default function SeatSelect(props) {
     // const { wagons } = getLastFiltr();
     // dispatch(fetchStorageInitWagon(wagons));
     // dispatch(fetchSeatsRequest(id));
+
   }, []);
 
   useEffect(() => {
@@ -51,11 +52,16 @@ export default function SeatSelect(props) {
   const schemSeats = {
     seatTop: [],
     amountSeatTop: 0,
+    topPrice: 0,
     seatBottom: [],
     amountSeatBottom: 0,
+    bottomPrice: 0,
     seatSide: [],
     amountSeatSide: 0,
+    sidePrice: 0,
   };
+
+  console.log(schemSeats);
 
   for (let seatsNum = 0; seatsNum < seatsOnWagon; seatsNum += 1) {
     let itemSeat = itemWagon.seats[seatsNum] ? itemWagon.seats[seatsNum] : {index: seatsNum + 1, available: false};

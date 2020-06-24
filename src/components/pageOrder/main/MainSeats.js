@@ -40,9 +40,14 @@ export default function MainSeats(props) {
     console.log('tttt');
     const { order, wagons } = getLastFiltr();
     dispatch(fetchStorageInitOrder(order));
-    dispatch(fetchSeatsRequest(id));
+    if(wagons.length > 0) {
+      dispatch(fetchStorageInitWagon(wagons));
+    } else {
+      dispatch(fetchSeatsRequest(id));
+    }
+    
     console.log(!wagons);
-    // dispatch(fetchStorageInitWagon(wagons));
+    // 
   }, []);
 
   useEffect(() => {
