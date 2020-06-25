@@ -27,7 +27,6 @@ export default function MainSeats(props) {
 
   const [arrClassWagons, setArrClassWagons] = useState([]);
   const [activeClassWagon, setActiveClassWagon] = useState();
-  const [itemClassWagons, setItemClassWagons] = useState();
 
   const classes = {
     first: 'Люкс',
@@ -37,17 +36,13 @@ export default function MainSeats(props) {
   };
 
   useEffect(() => {
-    console.log('tttt');
     const { order, wagons } = getLastFiltr();
     dispatch(fetchStorageInitOrder(order));
-    if(wagons.length > 0) {
+    if(wagons && wagons.length > 0) {
       dispatch(fetchStorageInitWagon(wagons));
     } else {
       dispatch(fetchSeatsRequest(id));
     }
-    
-    console.log(!wagons);
-    // 
   }, []);
 
   useEffect(() => {
@@ -63,19 +58,16 @@ export default function MainSeats(props) {
   }, [wagons])
   
   const handleChooseAnotherTrain = () => {
+    dispatch(fetchSelectClassWagon({classWagon: null}));
     changeFiltrStorage({ field: 'order', value: {}});
     changeFiltrStorage({ field: 'wagons', value: []});
-    // changeFiltrStorage({ field: 'wagons', value: []});
+
   }
 
   const selectClassWagon = (classWagon) => {
     setActiveClassWagon(classWagon);
     dispatch(fetchSelectClassWagon({classWagon}));
-    // setItemClassWagons(wagons);
   }
-
-  // console.log(itemClassWagons);
-  console.log(wagons);
 
   return (
     <section className="seats-content main-block">

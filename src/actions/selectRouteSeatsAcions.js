@@ -3,6 +3,7 @@ import {
   FETCH_SEATS_REQUEST,
   FETCH_SEATS_SUCCESS,
   FETCH_SEATS_FAILURE,
+  FETCH_TICKET_COUNTS_CHANGE,
   FETCH_STORAGE_INIT_ORDER,
   FETCH_STORAGE_INIT_WAGON,
   FETCH_SELECT_CLASS_WAGON,
@@ -35,6 +36,13 @@ export function fetchSeatsFailure(error) {
   return {
     type: FETCH_SEATS_FAILURE,
     payload: { error },
+  };
+}
+
+export function fetchTicketCountsChange(ticketCount) {
+  return {
+    type: FETCH_TICKET_COUNTS_CHANGE,
+    payload: ticketCount,
   };
 }
 

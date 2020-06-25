@@ -3,6 +3,7 @@ import {
   FETCH_SEATS_REQUEST,
   FETCH_SEATS_SUCCESS,
   FETCH_SEATS_FAILURE,
+  FETCH_TICKET_COUNTS_CHANGE,
   FETCH_STORAGE_INIT_ORDER,
   FETCH_STORAGE_INIT_WAGON,
   FETCH_SELECT_CLASS_WAGON,
@@ -13,6 +14,7 @@ import {
 const initialState = {
   route: {},
   wagons: [],
+  ticketCounts: {},
   selectedClassWagon: null,
   selectedWagon: [],
   loading: false,
@@ -38,9 +40,7 @@ export default function selectRouteSeatsReducer(state = initialState, action) {
         selectedClassWagon: null,
       };
     case FETCH_SEATS_SUCCESS:
-      console.log(action.payload);  
       const { data } = action.payload;
-      
       return {
         ...state,
         wagons: data.map((item) => {
@@ -59,6 +59,9 @@ export default function selectRouteSeatsReducer(state = initialState, action) {
     case FETCH_SEATS_FAILURE:
       const { error } = action.payload;
       return { ...state, loading: false, error };
+    case FETCH_TICKET_COUNTS_CHANGE:
+      const { ticketCounts } = action.payload;
+      return { ...state, ticketCounts };
     case FETCH_STORAGE_INIT_ORDER:
       return { ...state, ...action.payload };
     case FETCH_STORAGE_INIT_WAGON:

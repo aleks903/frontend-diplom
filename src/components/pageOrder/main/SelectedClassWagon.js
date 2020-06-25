@@ -12,6 +12,10 @@ export default function SelectedClassWagon() {
 
   const [activeWagons, setActiveWagons] = useState([]);
   
+console.log(selectedClassWagon);
+console.log(selectedWagon);
+console.log(wagons);
+
   useEffect(() => {
     setActiveWagons(
       wagons.filter((item) => {

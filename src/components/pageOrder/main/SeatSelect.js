@@ -7,7 +7,7 @@ import { fetchChangeFacilities, fetchStorageInitWagon } from '../../../actions/s
 import changeFiltrStorage, { getLastFiltr } from '../../../utils/filtr-storage'
 
 export default function SeatSelect(props) {
-  const { wagons, selectedClassWagon, selectedWagon } = useSelector((state) => state.selectRouteSeats);
+  const { wagons, selectedClassWagon, selectedWagon, ticketCounts } = useSelector((state) => state.selectRouteSeats);
   const { itemWagon } = props;
   const dispatch = useDispatch();
   // const [facilities, setFacilities] = useState({
@@ -19,9 +19,8 @@ export default function SeatSelect(props) {
     // const { wagons } = getLastFiltr();
     // dispatch(fetchStorageInitWagon(wagons));
     // dispatch(fetchSeatsRequest(id));
-
+    // console.log(ticketCounts);
   }, []);
-
   useEffect(() => {
     console.log(wagons);
     console.log(itemWagon);
@@ -76,8 +75,7 @@ export default function SeatSelect(props) {
           if (itemSeat.available) schemSeats.amountSeatBottom += 1;
           schemSeats.seatBottom.push(itemSeat);
         }
-      }
-      if (selectedClassWagon === 'third') {
+      } else if (selectedClassWagon === 'third') {
         if (itemSeat.available) schemSeats.amountSeatSide += 1;
         schemSeats.seatSide.push(itemSeat);
       }

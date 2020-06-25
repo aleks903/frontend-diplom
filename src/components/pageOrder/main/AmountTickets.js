@@ -1,6 +1,9 @@
 import React, {useState, useEffect} from 'react';
+import { useSelector, useDispatch } from 'react-redux';
+import { fetchTicketCountsChange } from '../../../actions/selectRouteSeatsAcions';
 
 import changeFiltrStorage, { getLastFiltr } from '../../../utils/filtr-storage';
+
 
 export default function AmountTickets(props) {
   const [ticketCount, setTicketCount] = useState({
@@ -28,7 +31,7 @@ export default function AmountTickets(props) {
     ],
     activeSelectAmount: '',
   });
-
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const { ticketCount } = getLastFiltr();
@@ -47,6 +50,7 @@ export default function AmountTickets(props) {
     }, 0);
 
     changeFiltrStorage({ field: 'ticketCount', value: ticketCount});
+    dispatch(fetchTicketCountsChange({ ticketCounts: ticketCount }));
   }, [ticketCount])
 
   const selectPassenger = (itemSelect) => {
@@ -111,7 +115,7 @@ const testtt = () => {
           </div>
           <p className="seat-description">
             {item.ageName === 'adult' && `Можно добавить еще ${item.limit - item.selected} пассажиров`}
-            {item.ageName === 'kids' && `Можно добавить еще ${item.limit - item.selected} детей до 10 лет.Свое место в вагоне, как у взрослых,
+            {item.ageName === 'kids' && `Можно добавить еще ${item.limit - item.selected} детей до 10 лет. Свое место в вагоне, как у взрослых,
             но дешевле в среднем на 50-65%`}
           </p>
         </div>
