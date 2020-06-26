@@ -653,19 +653,21 @@
 }
 
 .place_is_taken {
-  width: 16px;
   background-color: #C4C4C4;
   color: #F7F6F6;
+  cursor: default;
 }
 
 .available-place {
-  width: 16px;
   background-color: #E5E5E5;
-  color: #000000;
 }
 
 .available-place:hover {
   color: #FFA800;
+}
+
+.seat-selected {
+  border: 2px solid #FFA800;
 }
 
 .scheme_top-seats li {

@@ -15,6 +15,8 @@ export default function SeatSelect(props) {
   //   priceFacilities: 0,
   // });
 
+console.log(selectedClassWagon);
+
   useEffect(() => {
     // const { wagons } = getLastFiltr();
     // dispatch(fetchStorageInitWagon(wagons));
@@ -22,8 +24,8 @@ export default function SeatSelect(props) {
     // console.log(ticketCounts);
   }, []);
   useEffect(() => {
-    console.log(wagons);
-    console.log(itemWagon);
+    // console.log(wagons);
+    // console.log(itemWagon);
     changeFiltrStorage({ field: 'wagons', value: wagons });
   }, [wagons])
 
@@ -35,7 +37,7 @@ export default function SeatSelect(props) {
   let seatsOnWagon = null;
   switch (selectedClassWagon) {
     case 'first':
-      seatsOnWagon = 18;
+      seatsOnWagon = 16;
       break;
     case 'second':
       seatsOnWagon = 32;
@@ -51,22 +53,22 @@ export default function SeatSelect(props) {
   const schemSeats = {
     seatTop: [],
     amountSeatTop: 0,
-    topPrice: 0,
+    topPrice: itemWagon.class_type === 'first' ? itemWagon.coach.price : itemWagon.coach.top_price,
     seatBottom: [],
     amountSeatBottom: 0,
-    bottomPrice: 0,
+    bottomPrice: itemWagon.coach.bottom_price,
     seatSide: [],
     amountSeatSide: 0,
-    sidePrice: 0,
+    sidePrice: itemWagon.coach.side_price,
+    seatFour: [],
   };
 
-  console.log(schemSeats);
+  // console.log(schemSeats);
 
   for (let seatsNum = 0; seatsNum < seatsOnWagon; seatsNum += 1) {
-    let itemSeat = itemWagon.seats[seatsNum] ? itemWagon.seats[seatsNum] : {index: seatsNum + 1, available: false};
+    let itemSeat = itemWagon.seats[seatsNum] ? itemWagon.seats[seatsNum] : {index: seatsNum + 1, available: false, seatSelected: false };
 
-    if (itemWagon.coach.class_type !== 'first' &&
-    itemWagon.coach.class_type !== 'fourth') {
+    if (itemWagon.coach.class_type !== 'first') {
       if (seatsNum < 32) {
         if (seatsNum % 2) {
           if (itemSeat.available) schemSeats.amountSeatTop += 1;
@@ -78,6 +80,13 @@ export default function SeatSelect(props) {
       } else if (selectedClassWagon === 'third') {
         if (itemSeat.available) schemSeats.amountSeatSide += 1;
         schemSeats.seatSide.push(itemSeat);
+      } else if (selectedClassWagon === 'fourth') {
+        if (itemSeat.available) schemSeats.amountSeatTop += 1;
+        if (seatsNum % 2 && seatsNum !== 61) {
+          schemSeats.seatSide.push(itemSeat);
+        } else {
+          schemSeats.seatFour.push(itemSeat);
+        }
       }
     } else {
         if (itemSeat.available) schemSeats.amountSeatTop += 1;
@@ -86,7 +95,7 @@ export default function SeatSelect(props) {
   }
 
   const changeFacilities = (facilitiesName, facilitiesPrice) => {
-    console.log(facilitiesName !== 'linens');
+    // console.log(facilitiesName !== 'linens');
     if (itemWagon.coach.is_linens_included && facilitiesName === 'linens') {
       return;
     }
@@ -191,6 +200,8 @@ export default function SeatSelect(props) {
       <SeatsScheme
         nameWagon={itemWagon.coach.name}
         arrSeats={schemSeats}
+        schemeName = {itemWagon.coach.class_type}
+
       />
                
             <div className="total-price">8080<span className="rub-vector-small"></span></div>
