@@ -66,7 +66,7 @@ console.log(selectedClassWagon);
   // console.log(schemSeats);
 
   for (let seatsNum = 0; seatsNum < seatsOnWagon; seatsNum += 1) {
-    let itemSeat = itemWagon.seats[seatsNum] ? itemWagon.seats[seatsNum] : {index: seatsNum + 1, available: false, seatSelected: false };
+    let itemSeat = itemWagon.seats[seatsNum] ? itemWagon.seats[seatsNum] : {index: seatsNum + 1, available: false, seatSelected: 'false' };
 
     if (itemWagon.coach.class_type !== 'first') {
       if (seatsNum < 32) {

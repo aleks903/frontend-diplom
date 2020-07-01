@@ -9,7 +9,9 @@ import {
   FETCH_SELECT_CLASS_WAGON,
   FETCH_SELECT_WAGON,
   FETCH_CHANGE_FACILITIES,
+  FETCH_CHANGE_PASSENGERS_SEATS,
 } from '../types/selectRouteSeatsTypes'
+import ItemSeats from '../components/pageOrder/main/ItemSeats';
 
 export function fetchSelectRoute(itemRoute) {
   return {
@@ -80,3 +82,11 @@ export function fetchChangeFacilities(itemWagonFacilities) {
     payload: itemWagonFacilities,
   };
 }
+
+export function fetchChangePassengersSeats(itemSeats) {
+  return {
+    type: FETCH_CHANGE_PASSENGERS_SEATS,
+    payload: itemSeats,
+  }
+}
+

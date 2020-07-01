@@ -55,7 +55,6 @@ export default function RoutesFooter() {
   }, [activePage])
 
   const selectPage = (index) => {
-    console.log(index);
     setActivePage(index);
     dispatch(fetchDirectionChangeFiltr({
       offset: limit * index,

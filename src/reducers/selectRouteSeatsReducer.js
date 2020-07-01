@@ -9,6 +9,7 @@ import {
   FETCH_SELECT_CLASS_WAGON,
   FETCH_SELECT_WAGON,
   FETCH_CHANGE_FACILITIES,
+  FETCH_CHANGE_PASSENGERS_SEATS,
 } from '../types/selectRouteSeatsTypes'
 
 const initialState = {
@@ -17,6 +18,10 @@ const initialState = {
   ticketCounts: {},
   selectedClassWagon: null,
   selectedWagon: [],
+  selectedSeats: {
+    itemsSeats: [],
+    passengersSeats: [],
+  },
   loading: false,
   error: null,
 };
@@ -61,7 +66,14 @@ export default function selectRouteSeatsReducer(state = initialState, action) {
       return { ...state, loading: false, error };
     case FETCH_TICKET_COUNTS_CHANGE:
       const { ticketCounts } = action.payload;
-      return { ...state, ticketCounts };
+      return {
+        ...state,
+        ticketCounts,
+        selectedSeats: {
+          itemsSeats: [],
+          passengersSeats: [],
+        },
+      };
     case FETCH_STORAGE_INIT_ORDER:
       return { ...state, ...action.payload };
     case FETCH_STORAGE_INIT_WAGON:
@@ -72,10 +84,17 @@ export default function selectRouteSeatsReducer(state = initialState, action) {
         ...state,
         selectedClassWagon: classWagon,
         selectedWagon: [],
+        selectedSeats: {
+          itemsSeats: [],
+          passengersSeats: [],
+        },
       };
     case FETCH_SELECT_WAGON:
       const { selectedWagon } = action.payload;
-      return { ...state, selectedWagon };
+      return {
+        ...state,
+        selectedWagon,
+      };
     case FETCH_CHANGE_FACILITIES:
        const { nameWagon, facilities } = action.payload;
       return {
@@ -90,7 +109,35 @@ export default function selectRouteSeatsReducer(state = initialState, action) {
           return item;
         }),
       };
-      
+    case FETCH_CHANGE_PASSENGERS_SEATS:
+      const { itemSeats } = action.payload;
+      console.log(itemSeats);
+      return {
+        ...state,
+        selectedSeats: {
+          ...itemSeats
+        }
+
+        // wagons: state.wagons.map((item) => {
+        //   if (item.coach.name === itemSeats.nameWagon) {
+        //     return {
+        //       ...item,
+        //       seats: item.seats.map((itemSeat) => {
+        //         if (itemSeat.index === Number(itemSeats.indexSeat)) {
+        //           return {
+        //             ...itemSeat,
+        //             seatSelected: itemSeats.seatSelected,
+        //           }
+        //         } else {
+        //           return itemSeat;
+        //         }
+        //       })
+        //     }
+        //   } else {
+        //     return item;
+        //   }
+        // })
+      }
 
     default:
       return { ...state };
